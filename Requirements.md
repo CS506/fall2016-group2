@@ -34,38 +34,3 @@
 * Different buckets for explicitly-tagged, and system-found keywords. Did the user specifically tag the message with the keyword?
 * Accounts should have enough info to identify people. People should not be able to have multiple accounts.
 * Users will already have Facebook or Google oooor email/password
-
-&nbsp;
-
-&nbsp;
-
-Readability
-
-|Formula|Grade|
-|-------|-----|
-|Flesch-Kincaid|5|
-|Gunning-Fog|6.9|
-|Coleman-Liau|10.6|
-|SMOG|8|
-|Automated Readability|2.7|
-|Average Grade|6.6|
-
-Readability Scores
-
-|Readability|Score|
-|-----------|-----|
-|Flesch-Kincaid Reading Ease|	70.1|
-|Spache Score	|3.8|
-|New Dale-Chall Score|	4.6|
-
-Text Quality
-
-|Type|Count|
-|-----------|-----|
-|Sentences > 30 Syllables	|0|
-|Sentences > 20 Syllables	|1|
-|Words > 4 Syllables	|3|
-|Words > 12 Letters	|0|
-|Passive Voice Count	|1|
-|Adverb Count	|15|
-|Cliché Count	|0|
