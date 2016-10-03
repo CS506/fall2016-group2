@@ -10,4 +10,5 @@ Date|Percentage|
 
 #Testability
 Date|Percentage
-9-26-2016|
+----|----------|
+9-26-2016|40%
