@@ -1,3 +1,9 @@
+##Requirements
+* Feature
+  * User Story
+    * Task
+
+
 #KEEP IT SIMPLE
 ##For the user, and the admin. How are we going to handle the content creation?
 
