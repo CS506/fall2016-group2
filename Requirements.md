@@ -1,5 +1,14 @@
 ##Requirements
 * Feature
+ - buckets
+ - 160 characters
+ - image and video support
+ - social network login or sign up facility
+ - anonymous tweeting
+ - search using hashtags
+ - timelined tweeting
+ - time sorting on tweets
+
   * User Story
     * Task
 
