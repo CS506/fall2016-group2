@@ -5,7 +5,7 @@
  - 160 characters
  - image and video support
    * As the Message Creator, I would like to post message with images/videos because more information can be conveyed to a reader and it's an outlet for creativity.
-   * As the Message Reader, I would like to have message with images/videos because text only posts can become bland, having visuals can be more entertaining.
+    * As the Message Reader, I would like to have message with images/videos because text only posts can become bland, having visuals can be more entertaining.
  - social network login or sign up facility
  - anonymous tweeting
    * As the Message Creator, I would like an option for anonymous messages because sometimes I don't want words to be connected back to me.
