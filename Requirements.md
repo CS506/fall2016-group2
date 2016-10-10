@@ -2,17 +2,21 @@
 * Feature
   * User Story
     * Task
-
+* Messages can be given times to automatically be posted, or automatically removed. A message be given both, either, or neither of these times.
+ * As the Message Creator, I want to be able to write a post and have it be automatically posted some time in the future. I also want posts to be able to have an expiration time when they are automatically removed. I want both of these features to be optional.
 * Buckets
  * As the Message Reader, I would like to have categories of messages automatically organized because finding messages that I care about can be difficult.
-* 160 characters
+* 160 characters per message.
 * Image and video support
   * As the Message Creator, I would like to post message with images/videos because more information can be conveyed to a reader and it's an outlet for creativity.
   * As the Message Reader, I would like to have message with images/videos because text only posts can become bland, having visuals can be more entertaining.
 * Social network login or sign up facility
 * Anonymous tweeting
   * As the Message Creator, I would like an option for anonymous messages because sometimes I don't want words to be connected back to me.
+  * As the Message Reader, I want to be able to find messages that are interesting to me even if they are posted anonymously.
 * Search using hashtags
+ * As the Message Creator, I want to be able to give my messages hashtags so my messages can be catagorized for Readers.
+ * As the Message Reader, I want to be able to search for messages by hashtags to help me find messages that I care about.
 * Timelined tweeting
 * Time sorting on tweets
 
