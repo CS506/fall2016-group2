@@ -7,6 +7,7 @@
 * Buckets
  * As the Message Reader, I would like to have categories of messages automatically organized because finding messages that I care about can be difficult.
 * 160 characters per message.
+  * As the Message Reader, I do not like reading alot of text because it is boring. The more text, the scarier the post.
 * Image and video support
   * As the Message Creator, I would like to post message with images/videos because more information can be conveyed to a reader and it's an outlet for creativity.
   * As the Message Reader, I would like to have message with images/videos because text only posts can become bland, having visuals can be more entertaining.
@@ -18,7 +19,9 @@
  * As the Message Creator, I want to be able to give my messages hashtags so my messages can be catagorized for Readers.
  * As the Message Reader, I want to be able to search for messages by hashtags to help me find messages that I care about.
 * Timelined tweeting
+  * As the Message Creator, I do not want everything I say to be connected back to me because sometimes I may say things that create trouble.
 * Time sorting on tweets
+  * As the Message Reader, I want to categorize messages by time because sometimes I am only interested in current events and othertimes I am only interested in messages from a long-time ago.
 
 
 
