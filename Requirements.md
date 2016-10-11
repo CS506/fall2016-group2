@@ -5,7 +5,7 @@
 * Messages can be given times to automatically be posted, or automatically removed. A message be given both, either, or neither of these times.
  * As the Message Creator, I want to be able to write a post and have it be automatically posted some time in the future. I also want posts to be able to have an expiration time when they are automatically removed. I want both of these features to be optional.
 * Buckets
- * As the Message Reader, I would like to have categories of messages automatically organized because finding messages that I care about can be difficult.
+ * As the Message Reader, I would like to have messages organized for me because finding messages that I care about can be difficult.
 * 160 characters per message.
   * As the Message Reader, I do not like reading alot of text because it is boring. The more text, the scarier the post.
 * Image and video support
