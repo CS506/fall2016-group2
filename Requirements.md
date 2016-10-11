@@ -12,6 +12,9 @@
   * As the Message Creator, I would like to post message with images/videos because more information can be conveyed to a reader and it's an outlet for creativity.
   * As the Message Reader, I would like to have message with images/videos because text only posts can become bland, having visuals can be more entertaining.
 * Social network login or sign up facility
+  * As the User, I would like to use my facebook account to login because I will not need to remember any more passwords.
+  * As the system, I would like users to login with another service because managing user accounts is painful.
+  * As the coder, I would like users to login with another server because this way I do not have to worry about account creation, validation, security, account recovery, and possibly account deletion.
 * Anonymous tweeting
   * As the Message Creator, I would like an option for anonymous messages because sometimes I don't want words to be connected back to me.
   * As the Message Reader, I want to be able to find messages that are interesting to me even if they are posted anonymously.
