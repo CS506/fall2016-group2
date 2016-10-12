@@ -1,7 +1,30 @@
-##Requirements
+##Requirements Format
 * Feature
   * User Story
     * Task
+
+##Project Reqirements New
+* Post Creation
+  * (As User) My posts are limited to 160 characters.
+  * (As User) I can attach images to my posts.
+  * (As User) I can attach videos to my posts.
+  * (As User) I can assign keywords/hashtags to my posts.
+* Post Sharing
+  * (As User) I can assign an optional start time for displaying my posts.
+  * (As User) If my post contains an optional start time, it becomes viewable once the start time has elapsed. Otherwise it becomes viewable immediately.
+  * (As User) I can assign an optional stop time for displaying my posts.
+  * (As User) If my post contains an optional start time, it becomes hidden once the stop time has elapsed. Otherwise it is viewable indefinitely.
+  * (As user) I can choose to share my posts anonymously.
+* Buckets
+  * (As User) I can see posts organized in collections of related material called buckets.
+  * (As User) My front page contains many buckets which I can view.
+  * (As User) I can specify which buckets I prefer to see on my front page.
+  * (As User) I can sort posts within buckets by time.
+* Log in and account creation
+  * (As User) I would like to use my facebook account to login.
+  * (As User) I would like to use my Google account to login.
+  
+##Project Reqirements Old
 * Messages can be given times to automatically be posted, or automatically removed. A message be given both, either, or neither of these times.
  * As the Message Creator, I want to be able to write a post and have it be automatically posted some time in the future. I also want posts to be able to have an expiration time when they are automatically removed. I want both of these features to be optional.
 * Buckets
@@ -25,43 +48,3 @@
   * As the Message Creator, I do not want everything I say to be connected back to me because sometimes I may say things that create trouble.
 * Time sorting on tweets
   * As the Message Reader, I want to categorize messages by time because sometimes I am only interested in current events and othertimes I am only interested in messages from a long-time ago.
-
-
-
-
-#KEEP IT SIMPLE
-##For the user, and the admin. How are we going to handle the content creation?
-
-##Likes
-* Not that much typing to express yourself, rapid fire
-
-##Dislikes
-
-## Typical experience
-* Come in, say what's on your mind.
-* An option for anonymity. A time limit for how long it's up there
-  * This part is a big deal
-  * For anonymous, and non-anonymous
-  * Is still retained in the backend
-  * All data for all messages, but not all displayed
-  * Mix it all together
-  * A time when it's posted, a time when it's deleted
-   * A message can have one, both, or neither
-* Everyone has an account.
-* Time-delay sending. Maybe saving drafts?
-* You have to be logged in to do anything. No login, no deal
-* Anonymous stuff:
- * A master feed of all anon?
- * A way to search specifically for anon messages?
- * Anon and non-anon mixed in the buckets
-* Location-based stuff?
-* No re-tweeting
-* Info as soon as the app starts. Based on location, interests? Key terms? Have different columns for different things, and be able to drill down into a specific column.
-* Be able to sort by time
-* Video, image, text, whatever.
-* 160 characters to a tweet
- * Multi-part messages?
-* What if your bucket is Pacers? What if it's Indiana Pacers?
-* Different buckets for explicitly-tagged, and system-found keywords. Did the user specifically tag the message with the keyword?
-* Accounts should have enough info to identify people. People should not be able to have multiple accounts.
-* Users will already have Facebook or Google oooor email/password
