@@ -5,24 +5,24 @@
 
 ##Project Reqirements New
 * Post Creation
-  * (As User) My posts are limited to 160 characters.
-  * (As User) I can attach images to my posts.
-  * (As User) I can attach videos to my posts.
-  * (As User) I can assign keywords/hashtags to my posts.
+  * My posts are limited to 160 characters.
+  * I can attach images to my posts.
+  * I can attach videos to my posts.
+  * I can assign keywords/hashtags to my posts.
 * Post Sharing
-  * (As User) I can assign an optional start time for displaying my posts.
-  * (As User) If my post contains an optional start time, it becomes viewable once the start time has elapsed. Otherwise it becomes viewable immediately.
-  * (As User) I can assign an optional stop time for displaying my posts.
-  * (As User) If my post contains an optional start time, it becomes hidden once the stop time has elapsed. Otherwise it is viewable indefinitely.
-  * (As user) I can choose to share my posts anonymously.
+  * I can assign an optional start time for displaying my posts.
+  * If my post contains an optional start time, it becomes viewable once the start time has elapsed. Otherwise it becomes viewable immediately.
+  * I can assign an optional stop time for displaying my posts.
+  * If my post contains an optional start time, it becomes hidden once the stop time has elapsed. Otherwise it is viewable indefinitely.
+  * I can choose to share my posts anonymously.
 * Buckets
-  * (As User) I can see posts organized in collections of related material called buckets.
-  * (As User) My front page contains many buckets which I can view.
-  * (As User) I can specify which buckets I prefer to see on my front page.
-  * (As User) I can sort posts within buckets by time.
+  * I can see posts organized in collections of related material called buckets.
+  * My front page contains many buckets which I can view.
+  * I can specify which buckets I prefer to see on my front page.
+  * I can sort posts within buckets by time.
 * Log in and account creation
-  * (As User) I would like to use my facebook account to login.
-  * (As User) I would like to use my Google account to login.
+  * I would like to use my facebook account to login.
+  * I would like to use my Google account to login.
   
 ##Project Reqirements Old
 * Messages can be given times to automatically be posted, or automatically removed. A message be given both, either, or neither of these times.
