@@ -6,18 +6,18 @@
 ##Project Reqirements New
 * Post Creation
   * My posts are limited to 160 characters.
-  * I can attach images to my posts.
-  * I can attach videos to my posts.
-  * I can assign keywords/hashtags to my posts.
+  * I can attach images no greater than 1024x512 to my posts.
+  * I can attach videos to my posts no greater than 512MB in size withe 1900x1200 resolution.
+  * I can assign keywords/hashtags to my posts with a minimum of 0 keywords/hashtags.
 * Post Sharing
   * I can assign an optional start time for displaying my posts.
   * If my post contains an optional start time, it becomes viewable once the start time has elapsed. Otherwise it becomes viewable immediately.
   * I can assign an optional stop time for displaying my posts.
-  * If my post contains an optional start time, it becomes hidden once the stop time has elapsed. Otherwise it is viewable indefinitely.
+  * If my post contains an optional stop time, it becomes hidden once the stop time has elapsed. Otherwise it is viewable indefinitely.
   * I can choose to share my posts anonymously.
 * Buckets
   * I can see posts organized in collections of related material called buckets.
-  * My front page contains many buckets which I can view.
+  * My front page contains many buckets which I can view where a front page will display atleast 1 bucket, the "Latest Posts" bucket, by default
   * I can specify which buckets I prefer to see on my front page.
   * I can sort posts within buckets by time.
 * Log in and account creation
