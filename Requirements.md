@@ -19,7 +19,7 @@
   * I can see posts organized in collections of related material called buckets.
   * My front page contains many buckets which I can view where a front page will display atleast 1 bucket, the "Latest Posts" bucket, by default
   * I can specify which buckets I prefer to see on my front page.
-  * I can sort posts within buckets by time.
+  * I can sort posts within buckets by time with the most recent post first.
 * Log in and account creation
   * I would like to use my facebook account to login.
   * I would like to use my Google account to login.
