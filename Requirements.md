@@ -7,13 +7,12 @@
 * Post Creation
   * My posts are limited to 160 characters. __Testable__
   * I can attach images no greater than 1024x512 to my posts. __Testable__
-  * I can attach videos to my posts no greater than 512MB in size withe 1900x1200 resolution. __Testable__
   * I can assign keywords/hashtags to my posts with a minimum of 0 keywords/hashtags. __Testable__
 * Post Sharing
   * I can assign an optional start time for displaying my posts.
   * If my post contains an optional start time, it becomes viewable once the start time has elapsed. Otherwise it becomes viewable immediately.
   * I can assign an optional stop time for displaying my posts.
-  * If my post contains an optional stop time, it becomes hidden once the stop time has elapsed. Otherwise it is viewable indefinitely.
+  * If my post contains an optional stop time, the post becomes hidden once the stop time has elapsed. Otherwise it is viewable indefinitely.
   * I can choose to share my posts anonymously.
 * Buckets
   * I can see posts organized in collections of related material called buckets.
