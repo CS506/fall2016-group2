@@ -4,6 +4,8 @@ node_js:
   - '4'
   - '5'
   - '6'
+services:
+  - mongodb
 env:
   - CXX=g++-4.8
 addons:
@@ -12,8 +14,5 @@ addons:
       - ubuntu-toolchain-r-test
     packages:
       - g++-4.8
-    code_climate:
-      repo_token: <>
 after_succes:
-  - npm run coverage
-  - npm run codeclimate-test-reporter
+  - npm run coveralls
