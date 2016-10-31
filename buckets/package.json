@@ -4,10 +4,8 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "test": "env NODE_ENV=test mocha --recursive tests/**/*",
+    "test": "echo \"No test specified\"", 
     "start": "node ./app/index.js",
-    "coverage": "istanbul cover --dir ./coverage _mocha --recursive tests/**/*",
-    "codeclimate-test-reporter": "codeclimate-test-reporter < ./coverage/lcov.info"
   },
   "dependencies": {
     "@onehilltech/blueprint": "^0.48.1",
@@ -23,7 +21,6 @@
   },
   "devDependencies": {
     "chai": "^3.5.0",
-    "codeclimate-test-reporter": "^0.4.0",
     "istanbul": "^0.4.5",
     "mocha": "^3.1.2"
   },
