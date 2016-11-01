@@ -15,5 +15,9 @@ module.exports = {
 
   '/logout': {
     get: {action: 'LoginController@logout'}
+  },
+
+  '/newUser': {
+    get: {view: 'newUser.handlebars'}
   }
 };
