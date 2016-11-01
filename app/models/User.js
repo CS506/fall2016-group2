@@ -1,17 +1,22 @@
-'use strict';
-
-var mongodb = require ('@onehilltech/blueprint-mongodb')
-  ;
+var mongodb = require('@onehilltech/blueprint-mongodb');
+var validator = require('validator');
 
 var schema = new mongodb.Schema({
-  username: {type: String, required: true, trim: true},
-  password: {type: String, required: true}
+	_id: {
+		unique: true,
+		index: true,
+		type: String,
+		required: true,
+		trim: true,
+		validate: validator.isAlphanumeric
+	},
+	userName: {
+		unique: true,
+		type: String,
+		required: true,
+		trim: true,
+		validate: validator.isAlphanumeric
+	}
 });
 
-// The password should be encrypted and stored in the database.
-
-schema.methods.verifyPassword = function (password) {
-  return this.password === password;
-};
-
-module.exports = mongodb.model ('users', schema);
+module.exports = exports = mongodb.model('User', schema);
