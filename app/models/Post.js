@@ -60,4 +60,4 @@ var schema = new mongodb.Schema({
 	}
 });
 
-module.exports = exports = mongodb.model('Post', schema);
+module.exports = exports = mongodb.model('posts', schema);
