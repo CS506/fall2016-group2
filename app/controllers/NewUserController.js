@@ -32,6 +32,8 @@ NewUserController.prototype.createUser = function () {
                 res.status(200).json(usr.id);
                 return callback(null);
             });
+            //Ok, uncommenting this line gives me the "Can't set headers after they are sent" error
+            // I'm thinking I need to give a "next" function?
             //res.render('newUser.handlebars', {username: req.body.username, password: req.body.password});
         }
     };

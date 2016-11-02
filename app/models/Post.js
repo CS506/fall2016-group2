@@ -2,14 +2,7 @@ var mongodb = require('@onehilltech/blueprint-mongodb');
 var validator = require('validator');
 
 var schema = new mongodb.Schema({
-	_id: {
-        	unique: true,
-        	index: true,
-        	type: String,
-        	required: true,
-        	trim: true,
-        	validate: validator.isAlphanumeric
-    	},
+
 	postText: {
 		type: String,
 		required: true,

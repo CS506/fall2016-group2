@@ -6,10 +6,14 @@ var passport = require ('passport')
     ;
 
 module.exports = {
+
+    '/newUser': {
+      get: {view: 'newUser.handlebars'}
+    },
+
     '/createUser': {
 
         // create a new user
-        // first, try and display the info that was POSTed
         post: {
             action: 'NewUserController@createUser'
         }
