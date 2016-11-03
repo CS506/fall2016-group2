@@ -9,6 +9,9 @@ var blueprint = require ('@onehilltech/blueprint')
 var Post = require ('../models/Post.js')
     ;
 
+var User = require ('../models/User.js')
+    ;
+
 function NewPostController () {
     blueprint.BaseController.call (this);
 }
@@ -23,7 +26,7 @@ NewPostController.prototype.createPost = function () {
         execute: function (req, res, callback) {
             var msg = new Post({
                 postText: req.body.postText,
-                userID: "1234",
+                userID: req.user.id,
                 postTime: Date.now(),
                 scheduled: false,
                 deleted: false
@@ -46,7 +49,6 @@ NewPostController.prototype.createPost = function () {
                 //res.status(200).json(msg.id);
 
             });
-//TODO: Figure out how to proceed to a view after posting
             //res.render('newPost.handlebars');
         }
     };

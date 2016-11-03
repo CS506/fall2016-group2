@@ -7,12 +7,16 @@ function isLoggedIn (req, res, next) {
   res.redirect ('/login');
 }
 
+var user = require ('../models/User');
+
 module.exports = {
   '/users': {
     use: isLoggedIn,
 
     '/me': {
-      get: {action: 'UserController@showMe'}
+        get: {action: 'UserController@showMe'},
+        //use: user.getUserPosts()
+        //get: {action: 'UserController@getUserPosts'}
     }
   }
 };
