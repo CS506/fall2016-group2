@@ -28,15 +28,23 @@ NewPostController.prototype.createPost = function () {
                 scheduled: false,
                 deleted: false
             });
+// mongoose has a .pre method for doing stuff to an object before saving it:
+            // msg.pre('save', function(next) {
+            // do validation or processing here
+            // next();
+            // )};
 
             msg.save(function (err, msg) {
                 if (err) return callback(new HttpError(500, 'Failed to create new post'));
 
-                res.status(200).json(msg.id);
-                return callback(null);
+                //res.status(200).json(msg.id);
+                //res.redirect(200, 'back');
+                //return callback(null);
+                res.render('newPost.handlebars', {postText: req.body.postText});
+
             });
 //TODO: Figure out how to proceed to a view after posting
-            //res.render('newPost.handlebars', {postText: req.body.postText});
+            //res.render('newPost.handlebars');
         }
     };
 };
