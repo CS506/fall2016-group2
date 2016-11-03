@@ -37,10 +37,13 @@ NewPostController.prototype.createPost = function () {
             msg.save(function (err, msg) {
                 if (err) return callback(new HttpError(500, 'Failed to create new post'));
 
-                //res.status(200).json(msg.id);
+
                 //res.redirect(200, 'back');
                 //return callback(null);
                 res.render('newPost.handlebars', {postText: req.body.postText});
+                // It might be possible to have some other function call this one and expect the msg.id
+                //back, instead of having flow go through this function, and then finish with render()
+                //res.status(200).json(msg.id);
 
             });
 //TODO: Figure out how to proceed to a view after posting
