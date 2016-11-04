@@ -10,7 +10,8 @@ var userID = "bob";
 
 var schema = new mongodb.Schema({
   username: {unique: true, type: String, required: true, trim: true},
-  password: {type: String, required: true}
+  password: {type: String, required: true},
+  tags: {type: [String], required: false}
 });
 
 // The password should be encrypted and stored in the database.

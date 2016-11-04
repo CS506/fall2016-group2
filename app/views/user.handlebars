@@ -14,12 +14,23 @@
 <body>
 
 <div class="container">
-  <p>Hello, my username is {{user.username}}</p>
-  <p><a href="/logout">Click to logout</a></p>
-    <p><a href="/newPost">New Post</a></p>
+    <div class="controls">
+        <p>Hello, my username is {{user.username}}</p>
+        <p><a href="/logout">Click to logout</a></p>
+        <p><a href="/newPost">New Post</a></p>
+    </div>
+    <form method="post" action="/createBucket">
+    <div class="form-group">
+        <label for="tag">New Bucket</label>
+        <input type="text" class="form-control" id="buckeTag" name="bucketTag" placeholder="Enter tag for bucket">
+    </div>
+    <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+    <div class="container">
     {{#each msg}}
-        <li>{{this.postText}} @ {{this.postTime}}</li>
+        <li>{{this.postText}} #{{this.postTags}} @ {{this.postTime}}</li>
     {{/each}}
+    </div>
 </div>
 
 

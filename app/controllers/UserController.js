@@ -3,7 +3,7 @@
 var blueprint = require ('@onehilltech/blueprint')
   ;
 
-//var usr = blueprint.app.models.User;
+var usr = blueprint.app.models.User;
 var posts = blueprint.app.models.Post;
 
 
@@ -17,28 +17,25 @@ blueprint.controller (UserController);
 
 UserController.prototype.showMe = function () {
   return function (req, res, callback) {
-      //var msg = usr.getUserPosts();
-      posts.find({userID: req.user.id}, 'postText postTime', function (err, result) {
-          //TODO: figure out how to deal with this HttpError
-          if (err) return callback(new HttpError(500, 'Cannot retrieve posts'));
-
-          res.render('user.handlebars', {user: req.user, msg: result});
-          //res.render ('user.handlebars', {user: req.user, msg: msg});
+    //var msg = usr.getUserPosts();
+    posts.find({userID: req.user.id}, 'postText postTime postTags', function (err, result) {
+      if (err) return callback(new HttpError(500, 'Cannot retrieve posts'));
+      usr.find({}, 'username', function (err, names) {
+        //TODO: figure out how to deal with this HttpError
+        if (err) return callback(new HttpError(500, 'Cannot retrieve posts'));
+        res.render('user.handlebars', {user: req.user, msg: result, username: names});
       });
+    });
   }
-}
+};
 
-// UserController.prototype.getUserPosts = function () {
-//     return {
-//         execute: function (req, res, callback) {
-//
-//             //user.find({userID: "bob"}, 'postText postTime', function (err, result) {
-//                 user.find({username: "bob"}, function (err, result) {
-//                 if (err) return callback(new HttpError(500, 'Cannot retrieve posts'));
-//
-//                 res.status (200).json (result);
-//                 return callback(null);
-//             });
-//         }
-//     };
-// };
+UserController.prototype.createBucket = function () {
+    return {
+        execute: function(req, res, callback) {
+            var bucketName = req.body.bucketTag;
+            usr.update( {userID: req.user.id}, { $push: { tags: bucketName}});
+
+            res.redirect('/users/me');
+        }
+    }
+}

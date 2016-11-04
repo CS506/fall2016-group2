@@ -26,6 +26,7 @@ NewPostController.prototype.createPost = function () {
         execute: function (req, res, callback) {
             var msg = new Post({
                 postText: req.body.postText,
+                postTags: req.body.tag,
                 userID: req.user.id,
                 postTime: Date.now(),
                 scheduled: false,
@@ -41,9 +42,10 @@ NewPostController.prototype.createPost = function () {
                 if (err) return callback(new HttpError(500, 'Failed to create new post'));
 
 
+                res.redirect('/users/me');
                 //res.redirect(200, 'back');
                 //return callback(null);
-                res.render('newPost.handlebars', {postText: req.body.postText});
+                //res.render('newPost.handlebars', {postText: req.body.postText});
                 // It might be possible to have some other function call this one and expect the msg.id
                 //back, instead of having flow go through this function, and then finish with render()
                 //res.status(200).json(msg.id);

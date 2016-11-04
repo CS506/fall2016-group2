@@ -15,8 +15,13 @@ module.exports = {
 
     '/me': {
         get: {action: 'UserController@showMe'},
-        //use: user.getUserPosts()
-        //get: {action: 'UserController@getUserPosts'}
     }
+  },
+
+  '/createBucket:' : {
+      post: {
+          action: 'UserController@createBucket'
+      },
   }
+
 };

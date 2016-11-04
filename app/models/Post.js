@@ -9,6 +9,12 @@ var schema = new mongodb.Schema({
 		trim: true,
 		validator: validator.isAlphanumeric
 	},
+	postTags: {
+		type: String,
+		required: true,
+		trim: true,
+		validator: validator.isAlphanumeric
+	},
 	userID: {
 		type: String,
 		required: true,
