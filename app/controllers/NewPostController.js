@@ -36,6 +36,9 @@ NewPostController.prototype.createPost = function () {
             msg.parseTextForTags ();
             return res.render('buckets.handlebars',
                     {postText: msg.getPostText (), postTags: msg.getPostTags () });
+            //IF I were to use the msg.save function here, my localhost
+            //severly hangs here.
+            //-Nyalia
             // return msg.save( function() {
             //     res.render('buckets.handlebars', {postText: msg.getPostText (), postTags: msg.getPostTags ()});
             // });
