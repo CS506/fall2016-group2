@@ -16,6 +16,10 @@
 <div class="container">
   <p>Hello, my username is {{user.username}}</p>
   <p><a href="/logout">Click to logout</a></p>
+    <p><a href="/newPost">New Post</a></p>
+    {{#each msg}}
+        <li>{{this.postText}} @ {{this.postTime}}</li>
+    {{/each}}
 </div>
 
 

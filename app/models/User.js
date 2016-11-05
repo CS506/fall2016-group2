@@ -1,7 +1,12 @@
 'use strict';
 
 var mongodb = require ('@onehilltech/blueprint-mongodb')
+    //, HttpError = mongodb.errors.HttpError
   ;
+
+var posts = require ('../models/Post');
+
+var userID = "bob";
 
 var schema = new mongodb.Schema({
   username: {unique: true, type: String, required: true, trim: true},
@@ -14,4 +19,5 @@ schema.methods.verifyPassword = function (password) {
   return this.password === password;
 };
 
-module.exports = mongodb.model ('users', schema);
+const COLLECTION_NAME = 'users';
+module.exports = mongodb.model (COLLECTION_NAME, schema);
