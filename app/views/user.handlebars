@@ -19,17 +19,27 @@
         <p><a href="/logout">Click to logout</a></p>
         <p><a href="/newPost">New Post</a></p>
     </div>
+
     <form method="post" action="/createBucket">
-    <div class="form-group">
-        <label for="tag">New Bucket</label>
-        <input type="text" class="form-control" id="buckeTag" name="bucketTag" placeholder="Enter tag for bucket">
-    </div>
-    <button type="submit" class="btn btn-default">Submit</button>
+        <div class="form-group">
+            <label for="tag">New Bucket</label>
+            <input type="text" class="form-control" id="bucketTag" name="bucketTag" placeholder="Enter tag for bucket">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
     </form>
+
+    <h1>User Posts</h1>
     <div class="container">
     {{#each msg}}
         <li>{{this.postText}} #{{this.postTags}} @ {{this.postTime}}</li>
     {{/each}}
+    </div>
+
+    <h1>Buckets</h1>
+    <div class="container">
+        {{#each buckets}}
+            <h2>{{this}}</h2>
+        {{/each}}
     </div>
 </div>
 

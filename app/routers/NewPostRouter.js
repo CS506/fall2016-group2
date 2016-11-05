@@ -1,7 +1,3 @@
-/**
- * Created by brandon on 11/2/16.
- */
-
 // TODO: find some way to have this code in one location, instead of in each router
 function isLoggedIn (req, res, next) {
     // if user is authenticated in the session, carry on
@@ -11,10 +7,6 @@ function isLoggedIn (req, res, next) {
     // if they aren't redirect them to the home page
     res.redirect ('/login');
 }
-
-// I dont think I need this here
-// var passport = require ('passport')
-//     ;
 
 module.exports = {
 
@@ -27,8 +19,6 @@ module.exports = {
     '/createPost': {
 
         // create a new Post
-        post: {
-            action: 'NewPostController@createPost'
-        }
+        post: {action: 'NewPostController@createPost'}
     }
 };
