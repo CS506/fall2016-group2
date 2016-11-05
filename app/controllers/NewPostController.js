@@ -19,7 +19,7 @@ function NewPostController () {
 blueprint.controller (NewPostController);
 
 NewPostController.prototype.createPost = function () {
-    return function (req, res, callback) {
+    return function (req, res) {
 
             //values for postTags and userID
             //are temporary static values to avoid validation errors
@@ -36,7 +36,7 @@ NewPostController.prototype.createPost = function () {
                 deleted: false
             });
 
-            msg.save(function (req, res, err){
+            msg.save(function (err){
 
                 //This console log statement is for debugging
                 //currently, this marks the spot where hang-up

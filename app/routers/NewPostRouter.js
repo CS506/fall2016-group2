@@ -1,3 +1,5 @@
+var express = require('express');
+
 // TODO: find some way to have this code in one location, instead of in each router
 function isLoggedIn (req, res, next) {
     // if user is authenticated in the session, carry on
@@ -12,6 +14,7 @@ module.exports = {
 
     //There has to be a reference to each view in some router for it to work, otherwise you get a 404
     '/newPost': {
+        use: isLoggedIn,
         // let user make a new most
         get: {view: 'newPost.handlebars'}
     },
