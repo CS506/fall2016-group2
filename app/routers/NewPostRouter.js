@@ -22,10 +22,5 @@ module.exports = {
     '/createPost': {
         // create a new Post
         post: {action: 'NewPostController@createPost'}
-    },
-
-    '/buckets': {
-        // go to the page of buckets
-        get: {view: 'buckets.handlebars'}
     }
 };

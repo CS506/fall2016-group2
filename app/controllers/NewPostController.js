@@ -1,7 +1,6 @@
 /**
  * Created by brandon on 11/2/16.
  */
-
 var blueprint = require ('@onehilltech/blueprint')
     , HttpError = blueprint.errors.HttpError
     ;
@@ -19,27 +18,27 @@ function NewPostController () {
 blueprint.controller (NewPostController);
 
 NewPostController.prototype.createPost = function () {
+    
+    //initialize an empty post
+    var msg = new Post({
+        postText: 'a',
+        postHashTags: [0],
+        userID: 'a',
+        postTime: Date.now(),
+        startTime: Date.now(),
+        stopTime: Date.now()+20,
+        scheduled: false,
+        deleted: false
+    });
+
     return function (req, res) {
-
-            //values for postTags and userID
-            //are temporary static values to avoid validation errors
-            //-Nyalia
-
-            var msg = new Post({
-                postText: req.body.postText,
-                postTags: new Array(1,2,3,4),
-                userID: '23422342',
-                postTime: Date.now(),
-                startTime: Date.now(),
-                stopTime: Date.now()+20,
-                scheduled: false,
-                deleted: false
-            });
-
-            msg.save(function (err){
-                if (err) console.log (err);
-                res.render('buckets.handlebars', {postText: this.postText, postTags: this.postTags});
-            });
+            msg.setPostText (req.body.postText);
+            msg.parseTextForTags ();
+            return res.render('buckets.handlebars',
+                    {postText: msg.getPostText (), postTags: msg.getPostTags () });
+            // return msg.save( function() {
+            //     res.render('buckets.handlebars', {postText: msg.getPostText (), postTags: msg.getPostTags ()});
+            // });
         };
 };
 
