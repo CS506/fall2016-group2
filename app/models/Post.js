@@ -79,9 +79,17 @@ schema.methods.parseTextForTags = function () {
 	for(var i in wordsArray)
 	{
 		if(/#/.test(wordsArray[i]))
+		{
 			tags.push(wordsArray[i]);
+
+			//lazy delete the hashtag from the text
+			//do this because actualy deletion may
+			//leave holes in array.
+			wordsArray[i] = '';
+		}
 	}
 
+	this.setPostText (wordsArray.join (' '));
 	this.setPostHashTags (tags);
 };
 
