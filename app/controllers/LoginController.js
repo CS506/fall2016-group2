@@ -20,10 +20,4 @@ LoginController.prototype.logout = function () {
   }
 };
 
-// LoginController.prototype.newUser = function () {
-//   return function (req, res) {
-//     res.redirect('/newUser');
-//   }
-// }
-
 module.exports = LoginController;

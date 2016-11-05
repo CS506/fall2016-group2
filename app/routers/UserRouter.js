@@ -1,4 +1,5 @@
-function isLoggedIn(req, res, next) {
+
+function isLoggedIn (req, res, next) {
   // if user is authenticated in the session, carry on
   if (req.isAuthenticated ())
     return next ();
@@ -14,9 +15,11 @@ module.exports = {
     use: isLoggedIn,
 
     '/me': {
-        get: {action: 'UserController@showMe'},
-        //use: user.getUserPosts()
-        //get: {action: 'UserController@getUserPosts'}
+        get: {action: 'UserController@showMe'}
     }
+  },
+
+  '/createBucket' : {
+      post: {action: 'UserController@createBucket'}
   }
 };

@@ -14,13 +14,19 @@
 <body>
 
 <div class="container">
+    <p><a href="/logout">Click to logout</a></p>
     <form method="post" action="/createPost">
         <div class="form-group">
             <label for="postText">post</label>
             <textarea id="postText" name="postText" cols="40" rows="5" placeholder="Go ahead!"></textarea>
         </div>
+        <div class="form-group">
+            <label for="postTag">tag</label>
+            <input type="text" class="form-control" id="tag" name="tag" placeholder="tag">
+        </div>
         <button type="submit" class="btn btn-default">Submit</button>
-    </form>
+        </form>
+    <p><a href="/users/me">Cancel</a></p>
 </div>
 
 <div class="newPostText">
