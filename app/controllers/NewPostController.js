@@ -37,16 +37,7 @@ NewPostController.prototype.createPost = function () {
             });
 
             msg.save(function (err){
-
-                //This console log statement is for debugging
-                //currently, this marks the spot where hang-up
-                //occurs. Meaning, this 'here' string is not printed
-                //to the console.
-                //-Nyalia
-                console.log("here");
-
-                if (err) return callback(err);
-
+                if (err) console.log (err);
                 res.render('buckets.handlebars', {postText: this.postText, postTags: this.postTags});
             });
         };
