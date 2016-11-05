@@ -26,7 +26,7 @@ NewPostController.prototype.createPost = function () {
         execute: function (req, res, callback) {
             var msg = new Post({
                 postText: req.body.postText,
-                postTags: req.body.tag,
+                postTags: req.body.tag.toLowerCase(),
                 userID: req.user.id,
                 postTime: Date.now(),
                 scheduled: false,

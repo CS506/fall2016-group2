@@ -37,8 +37,11 @@
 
     <h1>Buckets</h1>
     <div class="container">
-        {{#each buckets}}
-            <h2>{{this}}</h2>
+        {{#each bucketList}}
+            <h3>{{this.tag}}</h3>
+            {{#each this.msgList}}
+            <li>{{this.author}} posted: {{this.post.postText}} #{{this.post.postTags}} @ {{this.post.postTime}}</li>
+            {{/each}}
         {{/each}}
     </div>
 </div>

@@ -1,6 +1,7 @@
 var mongodb = require('@onehilltech/blueprint-mongodb');
 var validator = require('validator');
 
+
 var schema = new mongodb.Schema({
 
 	postText: {
