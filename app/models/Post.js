@@ -8,13 +8,12 @@ var schema = new mongodb.Schema({
 		type: String,
 		required: true,
 		trim: true,
-		validator: validator.isAlphanumeric
+		validate: validator.isAlphanumeric
 	},
 	postTags: {
-		type: String,
+		type: Array,
 		required: true,
-		trim: true,
-		validator: validator.isAlphanumeric
+		trim: true
 	},
 	userID: {
 		type: String,
@@ -25,32 +24,27 @@ var schema = new mongodb.Schema({
 	postTime: {
 		type: Date,
 		required: true,
-		trim: true,
-		validate: validator.isDate
+		trim: true
 	},
 	startTime: {
 		type: Date,
 		required: false,
-		trim: true,
-		validate: validator.isDate
+		trim: true
 	},
 	stopTime: {
 		type: Date,
 		required: false,
-		trim: true,
-		validate: validator.isDate
+		trim: true
 	},
 	scheduled: {
 		type: Boolean,
 		required: true,
-		trim: true,
-		validate: validator.isBoolean
+		trim: true
 	},
 	deleted: {
 		type: Boolean,
 		required: true,
-		trim: true,
-		validate: validator.isBoolean
+		trim: true
 	},
 	image: {
 		type: String,
@@ -59,6 +53,21 @@ var schema = new mongodb.Schema({
 		validate: validator.isAlphanumeric
 	}
 });
+
+schema.pre('save', true, function (next, done){
+	var wordsArray = this.postText.split(' ');
+
+	for(var i in wordsArray)
+	{
+		if(/#/.test(wordsArray[i]))
+		{
+			this.postTags.push(wordsArray[i]);
+		}
+	}
+
+	next();
+	setTimeout(done, 100);
+} );
 
 const COLLECTION_NAME = 'posts';
 module.exports = mongodb.model (COLLECTION_NAME, schema);

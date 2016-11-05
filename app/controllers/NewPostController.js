@@ -19,41 +19,37 @@ function NewPostController () {
 blueprint.controller (NewPostController);
 
 NewPostController.prototype.createPost = function () {
-    var self = this;
+    return function (req, res, callback) {
 
-    return {
+            //values for postTags and userID
+            //are temporary static values to avoid validation errors
+            //-Nyalia
 
-        execute: function (req, res, callback) {
             var msg = new Post({
                 postText: req.body.postText,
-                postTags: req.body.tag.toLowerCase(),
-                userID: req.user.id,
+                postTags: new Array(1,2,3,4),
+                userID: '23422342',
                 postTime: Date.now(),
+                startTime: Date.now(),
+                stopTime: Date.now()+20,
                 scheduled: false,
                 deleted: false
             });
-// mongoose has a .pre method for doing stuff to an object before saving it:
-            // msg.pre('save', function(next) {
-            // do validation or processing here
-            // next();
-            // )};
 
-            msg.save(function (err, msg) {
-                if (err) return callback(new HttpError(500, 'Failed to create new post'));
+            msg.save(function (req, res, err){
 
+                //This console log statement is for debugging
+                //currently, this marks the spot where hang-up
+                //occurs. Meaning, this 'here' string is not printed
+                //to the console.
+                //-Nyalia
+                console.log("here");
 
-                res.redirect('/users/me');
-                //res.redirect(200, 'back');
-                //return callback(null);
-                //res.render('newPost.handlebars', {postText: req.body.postText});
-                // It might be possible to have some other function call this one and expect the msg.id
-                //back, instead of having flow go through this function, and then finish with render()
-                //res.status(200).json(msg.id);
+                if (err) return callback(err);
 
+                res.render('buckets.handlebars', {postText: this.postText, postTags: this.postTags});
             });
-            //res.render('newPost.handlebars');
-        }
-    };
+        };
 };
 
 module.exports = NewPostController;

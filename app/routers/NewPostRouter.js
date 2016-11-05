@@ -12,12 +12,17 @@ module.exports = {
 
     //There has to be a reference to each view in some router for it to work, otherwise you get a 404
     '/newPost': {
+        // let user make a new most
         get: {view: 'newPost.handlebars'}
     },
 
     '/createPost': {
-
         // create a new Post
         post: {action: 'NewPostController@createPost'}
+    },
+
+    '/buckets': {
+        // go to the page of buckets
+        get: {view: 'buckets.handlebars'}
     }
 };
