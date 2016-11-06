@@ -18,7 +18,7 @@ AuthController.prototype.login = function () {
             }
             req.logIn(user, function (err) {
                 if (err) { return next(err); }
-                return res.redirect(200, '/users/me');
+                return res.redirect(200, '/users/me'); //returning a status code displays a redirecting page
             });
         })(req, res, next);
     };
