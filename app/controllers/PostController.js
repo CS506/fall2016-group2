@@ -18,22 +18,19 @@ function PostController () {
 blueprint.controller (PostController);
 
 PostController.prototype.createPost = function () {
-    
-    //initialize an empty post
-    var msg = {
-        postText: 'a',
-        tags: [0],
-        userID: 'a',
-        postTime: Date.now(),
-        startTime: Date.now(),
-        stopTime: Date.now()+20,
-        scheduled: false,
-        deleted: false
-    };
+    return function (req, res, next) {
+        //initialize an empty post
+        var msg = {};
 
-    return function (req, res) {
-        msg.postText = req.body.postText;
-        Post.create(msg);
+        if (req.body.postText) {
+            msg.postText = req.body.postText;
+            Post.create(msg, function (err, newpost) {
+                if (err) { return next(err); }
+                if (!newpost) { return res.sendStatus(500); }
+                return res.sendStatus(201);
+            });
+        }
+        else { return res.sendStatus(400); }
     };
 };
 
