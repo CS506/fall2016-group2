@@ -1,16 +1,16 @@
 var mongodb = require('@onehilltech/blueprint-mongodb');
 var validator = require('validator');
 
+
 var schema = new mongodb.Schema({
-	_id: {
-        	unique: true,
-        	index: true,
-        	type: String,
-        	required: true,
-        	trim: true,
-        	validate: validator.isAlphanumeric
-    	},
+
 	postText: {
+		type: String,
+		required: true,
+		trim: true,
+		validator: validator.isAlphanumeric
+	},
+	postTags: {
 		type: String,
 		required: true,
 		trim: true,
@@ -60,4 +60,5 @@ var schema = new mongodb.Schema({
 	}
 });
 
-module.exports = exports = mongodb.model('posts', schema);
+const COLLECTION_NAME = 'posts';
+module.exports = mongodb.model (COLLECTION_NAME, schema);

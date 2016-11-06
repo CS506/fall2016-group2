@@ -13,6 +13,7 @@ module.exports = {
     }
   },
 
+  //TODO: Try using this route with the other controllers
   '/logout': {
     get: {action: 'LoginController@logout'}
   }
