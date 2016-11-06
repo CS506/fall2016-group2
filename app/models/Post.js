@@ -1,64 +1,46 @@
-var mongodb = require('@onehilltech/blueprint-mongodb');
-var validator = require('validator');
-
+var mongodb = require('@onehilltech/blueprint-mongodb')
+  ;
 
 var schema = new mongodb.Schema({
 
 	postText: {
 		type: String,
 		required: true,
-		trim: true,
-		validator: validator.isAlphanumeric
+		trim: true
 	},
-	postTags: {
-		type: String,
-		required: true,
-		trim: true,
-		validator: validator.isAlphanumeric
-	},
-	userID: {
-		type: String,
-		required: true,
-		trim: true,
-		validate: validator.isAlphanumeric
-	},
-	postTime: {
-		type: Date,
-		required: true,
-		trim: true,
-		validate: validator.isDate
-	},
+
+	tags: { type: Array },
+
 	startTime: {
 		type: Date,
-		required: false,
-		trim: true,
-		validate: validator.isDate
 	},
+
 	stopTime: {
 		type: Date,
-		required: false,
-		trim: true,
-		validate: validator.isDate
-	},
-	scheduled: {
-		type: Boolean,
-		required: true,
-		trim: true,
-		validate: validator.isBoolean
-	},
-	deleted: {
-		type: Boolean,
-		required: true,
-		trim: true,
-		validate: validator.isBoolean
-	},
-	image: {
-		type: String,
-		required: false,
-		trim: true,
-		validate: validator.isAlphanumeric
 	}
 });
 
-const COLLECTION_NAME = 'posts';
+schema.pre('save', function (next) {
+    this.setTags();
+    next();
+});
+
+schema.pre('update', function (next) {
+    this.setTags();
+    next();
+});
+
+schema.methods.setTags = function () {
+    var regex = /(^|\B)#([A-Za-z_][A-Za-z0-9_]*)/g
+      , t = []
+      , tags = [];
+    
+    while ((t = regex.exec(this.postText)) !== null) {
+        tags.push(t[2]);
+    }
+  
+    this.tags = tags;
+};
+
+const COLLECTION_NAME = 'post';
 module.exports = mongodb.model (COLLECTION_NAME, schema);

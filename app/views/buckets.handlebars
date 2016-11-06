@@ -14,16 +14,21 @@
 <body>
 
 <div class="container">
-    <p><a href="/logout">Click to logout</a></p>
-    <form method="post" action="/createPost">
-        <div class="form-group">
-            <label for="postText">post</label>
-            <textarea id="postText" name="postText" cols="40" rows="5" placeholder="Let the world know something!"></textarea>
+    <div id="bckt1" class="bckts">
+        
+        <div class="bcktPostText">
+            {{#if postText}}
+                <h1>{{postText}}</h1>
+            {{/if}}
         </div>
-        <div id="tags" name="tags"></div>
-        <button type="submit" class="btn btn-default">Submit</button>
-        </form>
-    <p><a href="/users/me">Cancel</a></p>
+
+        <div class="bcktPostTags">
+            {{#if postTags}}
+                <h3>The hashtags for this post: {{postTags}}</h1>
+            {{/if}}
+        </div>
+
+    </div>
 </div>
 
 <!-- Latest compiled and minified JavaScript -->
