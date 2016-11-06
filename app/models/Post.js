@@ -1,4 +1,5 @@
-var mongodb = require('@onehilltech/blueprint-mongodb');
+var mongodb = require('@onehilltech/blueprint-mongodb')
+  ;
 
 var schema = new mongodb.Schema({
 
@@ -19,16 +20,26 @@ var schema = new mongodb.Schema({
 	}
 });
 
-schema.post('save', function () {
+schema.pre('save', function (next) {
     this.setTags();
+    next();
 });
 
- schema.post('update', function () {
-     this.setTags();
- });
+schema.pre('update', function (next) {
+    this.setTags();
+    next();
+});
 
 schema.methods.setTags = function () {
-    this.tags = this.postText.match(/\B#\w*[a-zA-Z]+\w*/g);
+    var regex = /(^|\B)#([A-Za-z_][A-Za-z0-9_]*)/g
+      , t = []
+      , tags = [];
+    
+    while ((t = regex.exec(this.postText)) !== null) {
+        tags.push(t[2]);
+    }
+  
+    this.tags = tags;
 };
 
 const COLLECTION_NAME = 'post';

@@ -1,14 +1,15 @@
-var async = require('async');
-var assert = require('chai').assert;
-var should = require('chai').should();
-var blueprint = require('@onehilltech/blueprint');
-var appPath = require('../fixtures/appPath');
-var it = require("mocha").it;
-var before = require("mocha").before;
-var describe = require("mocha").describe;
-var users = require('../fixtures/users');
-var after = require("mocha").after;
-var UserDB = require('../../app/models/User');
+var async = require('async')
+  , assert = require('chai').assert
+  , should = require('chai').should()
+  , blueprint = require('@onehilltech/blueprint')
+  , appPath = require('../fixtures/appPath')
+  , it = require("mocha").it
+  , before = require("mocha").before
+  , describe = require("mocha").describe
+  , users = require('../fixtures/users')
+  , after = require("mocha").after
+  , UserDB = require('../../app/models/User')
+  , mongoose = require('mongoose');
 
 describe('User Test', function () {
     var server;
@@ -18,7 +19,6 @@ describe('User Test', function () {
         request
             .post('/signup')
             .type('form')
-            //.set('content-type', 'application/x-www-form-urlencoded')
             .send(users[key])
             .expect(201)
             .end(function(error, response) {
@@ -71,9 +71,7 @@ describe('User Test', function () {
     });
 
     after(function (done) {
-        for (let i = 0; i < 3; ++i) {
-            UserDB.findOneAndRemove({ username: users[i].username }, function (err) {});
-        }
+        mongoose.connection.db.dropCollection('users');
         done();
     });
 
@@ -88,7 +86,7 @@ describe('User Test', function () {
     it('should fail to create if username is missing', function (done) {
         request
             .post('/signup')
-            .set('content-type', 'application/x-www-form-urlencoded')
+            .type('form')
             .send({ username: null, password: "somepassword" })
             .expect(400)
             .end(function (error, response) {
@@ -102,7 +100,7 @@ describe('User Test', function () {
     it('should fail to create if password is missing', function (done) {
         request
             .post('/signup')
-            .set('content-type', 'application/x-www-form-urlencoded')
+            .type('form')
             .send({ username: "someuser", password: null })
             .expect(400)
             .end(function (error, response) {
@@ -120,7 +118,7 @@ describe('User Test', function () {
     it('should not create two of the same user', function (done) {
         request
             .post('/signup')
-            .set('content-type', 'application/x-www-form-urlencoded')
+            .type('form')
             .send(users[0])
             .expect(409)
             .end(function (error, response) {
