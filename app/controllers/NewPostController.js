@@ -32,26 +32,12 @@ NewPostController.prototype.createPost = function () {
                 scheduled: false,
                 deleted: false
             });
-// mongoose has a .pre method for doing stuff to an object before saving it:
-            // msg.pre('save', function(next) {
-            // do validation or processing here
-            // next();
-            // )};
 
             msg.save(function (err, msg) {
                 if (err) return callback(new HttpError(500, 'Failed to create new post'));
 
-
                 res.redirect('/users/me');
-                //res.redirect(200, 'back');
-                //return callback(null);
-                //res.render('newPost.handlebars', {postText: req.body.postText});
-                // It might be possible to have some other function call this one and expect the msg.id
-                //back, instead of having flow go through this function, and then finish with render()
-                //res.status(200).json(msg.id);
-
             });
-            //res.render('newPost.handlebars');
         }
     };
 };

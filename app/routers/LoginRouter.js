@@ -17,10 +17,4 @@ module.exports = {
   '/logout': {
     get: {action: 'LoginController@logout'}
   }
-
-  //newUser was able to display without a router because of this module right here
-  // I created a link instead, so this is gone. Leaving commented stuff for notes
-  //'/newUser': {
-  //  get: {view: 'newUser.handlebars'}
-  //}
 };

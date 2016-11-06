@@ -1,7 +1,6 @@
 'use strict';
 
 var mongodb = require ('@onehilltech/blueprint-mongodb')
-    //, HttpError = mongodb.errors.HttpError
   ;
 
 var posts = require ('../models/Post');
