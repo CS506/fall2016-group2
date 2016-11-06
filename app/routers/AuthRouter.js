@@ -15,6 +15,10 @@ module.exports = {
     },
 
     '/signup': {
+        get: {view: 'createAccount.handlebars'}
+    },
+
+    '/createAccount' : {
         post: { action: 'AuthController@createAccount'}
     }
 };

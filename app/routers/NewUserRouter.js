@@ -8,7 +8,7 @@ var passport = require ('passport')
 module.exports = {
 
     '/newUser': {
-      get: {view: 'newUser.handlebars'}
+      get: {view: 'createAccount.handlebars'}
     },
 
     '/createUser': {
