@@ -11,13 +11,13 @@ var Post = require ('../models/Post.js')
 var User = require ('../models/User.js')
     ;
 
-function NewPostController () {
+function PostController () {
     blueprint.BaseController.call (this);
 }
 
-blueprint.controller (NewPostController);
+blueprint.controller (PostController);
 
-NewPostController.prototype.createPost = function () {
+PostController.prototype.createPost = function () {
     
     //initialize an empty post
     var msg = {
@@ -37,5 +37,5 @@ NewPostController.prototype.createPost = function () {
     };
 };
 
-module.exports = NewPostController;
+module.exports = PostController;
 

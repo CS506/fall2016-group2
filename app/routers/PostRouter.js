@@ -21,6 +21,6 @@ module.exports = {
 
     '/createPost': {
         // create a new Post
-        post: {action: 'NewPostController@createPost'}
+        post: {action: 'PostController@createPost'}
     }
 };
