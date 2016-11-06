@@ -15,7 +15,7 @@ var schema = new mongodb.Schema({
 	//with a post.
 	//-Nyalia
 
-	postHashTags: {
+	tags: {
 		type: Array,
 		required: true,
 		trim: true
@@ -64,42 +64,17 @@ var schema = new mongodb.Schema({
 	}
 });
 
-schema.methods.setPostText = function (usrText) {
-	this.postText = usrText;
+schema.post('save', function () {
+    this.setTags();
+});
+
+schema.post('update', function () {
+    this.setTags();
+});
+
+schema.methods.setTags = function () {
+    this.tags = this.postText.match(/\B#\w*[a-zA-Z]+\w*/g);
 };
-
-schema.methods.setPostHashTags = function (usrTags) {
-	this.postHashTags = usrTags;
-};
-
-schema.methods.parseTextForTags = function () {
-	var wordsArray = this.postText.split(' ');
-	var tags = [];
-
-	for(var i in wordsArray)
-	{
-		if(/#/.test(wordsArray[i]))
-		{
-			tags.push(wordsArray[i]);
-
-			//lazy delete the hashtag from the text
-			//do this because actualy deletion may
-			//leave holes in array.
-			wordsArray[i] = '';
-		}
-	}
-
-	this.setPostText (wordsArray.join (' '));
-	this.setPostHashTags (tags);
-};
-
-schema.methods.getPostText = function () {
-	return this.postText;
-}
-
-schema.methods.getPostTags = function () {
-	return this.postHashTags;
-}
 
 const COLLECTION_NAME = 'posts';
 module.exports = mongodb.model (COLLECTION_NAME, schema);
