@@ -22,7 +22,6 @@ module.exports = {
 
     '/createPost': {
         //user must be logged in to go to these routes
-        use: isLoggedIn,
         // create a new Post
         post: {action: 'PostController@createPost'}
     }

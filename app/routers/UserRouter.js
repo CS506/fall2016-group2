@@ -23,7 +23,6 @@ module.exports = {
 
   '/createBucket' : {
       //user should be logged in to go to these routes
-      use: isLoggedIn,
       post: {action: 'UserController@createBucket'}
   }
 };
