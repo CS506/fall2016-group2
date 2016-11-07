@@ -12,7 +12,7 @@ var user = require ('../models/User');
 
 module.exports = {
   '/users': {
-    use: isLoggedIn,
+    // use: isLoggedIn,
 
     '/me': {
         get: {action: 'UserController@showMe'}
