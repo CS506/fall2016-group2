@@ -7,11 +7,13 @@ function isLoggedIn (req, res, next) {
         return next ();
 
     // if they aren't redirect them to the home page
+    console.log('here');    
     res.redirect ('/login');
 } 
 
 module.exports = {
     '/login': {
+        
         // retrieve the login view
         get: {view: 'login.handlebars'},
 

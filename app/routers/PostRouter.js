@@ -12,16 +12,17 @@ function isLoggedIn (req, res, next) {
 
 module.exports = {
 
-    //user must be logged in to go to these routes
-    use: isLoggedIn,
-
     //There has to be a reference to each view in some router for it to work, otherwise you get a 404
     '/newPost': {
+        //user must be logged in to go to these routes
+        use: isLoggedIn,
         // let user make a new post
         get: {view: 'newPost.handlebars'}
     },
 
     '/createPost': {
+        //user must be logged in to go to these routes
+        use: isLoggedIn,
         // create a new Post
         post: {action: 'PostController@createPost'}
     }

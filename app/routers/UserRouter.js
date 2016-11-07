@@ -12,10 +12,9 @@ var user = require ('../models/User');
 
 module.exports = {
 
-  //user should be logged in to go to these routes
-  use: isLoggedIn,
-
   '/users': {
+    //user should be logged in to go to these routes
+    use: isLoggedIn,
 
     '/me': {
         get: {action: 'UserController@showMe'}
@@ -23,6 +22,8 @@ module.exports = {
   },
 
   '/createBucket' : {
+      //user should be logged in to go to these routes
+      use: isLoggedIn,
       post: {action: 'UserController@createBucket'}
   }
 };
