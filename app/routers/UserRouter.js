@@ -22,7 +22,6 @@ module.exports = {
   },
 
   '/createBucket' : {
-      //user should be logged in to go to these routes
       post: {action: 'UserController@createBucket'}
   }
 };
