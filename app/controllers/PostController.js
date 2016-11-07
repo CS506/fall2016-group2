@@ -8,9 +8,6 @@ var blueprint = require ('@onehilltech/blueprint')
 var Post = require ('../models/Post.js')
     ;
 
-var User = require ('../models/User.js')
-    ;
-
 function PostController () {
     blueprint.BaseController.call (this);
 }

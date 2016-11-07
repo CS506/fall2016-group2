@@ -8,7 +8,7 @@ var posts = require ('../models/Post');
 var schema = new mongodb.Schema({
   username: {unique: true, type: String, required: true, trim: true},
   password: {type: String, required: true},
-  tags: {type: [String], required: false}
+  tags: {type: Array, required: false}
 });
 
 // The password should be encrypted and stored in the database.

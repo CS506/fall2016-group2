@@ -11,7 +11,9 @@ function isLoggedIn (req, res, next) {
 var user = require ('../models/User');
 
 module.exports = {
+
   '/users': {
+    //user should be logged in to go to these routes
     use: isLoggedIn,
 
     '/me': {
