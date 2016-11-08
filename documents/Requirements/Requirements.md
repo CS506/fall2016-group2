@@ -5,33 +5,33 @@
 
 ##Project Reqirements New
 * Post Creation
-  * My posts are limited to 160 characters. __Testable__
-    * As the Message Reader, I do not like reading alot of text because it is boring. The more text, the scarier the post.
+  * My posts can't be more than 160 characters. __Testable__
+    * As the Message Reader, I hate reading alot of text because it is boring.
   * I can attach images no greater than 1024x512 to my posts. __Testable__
-    * As the Message Creator, I would like to post message with images/videos because more information can be conveyed that way and I want to express my creative side.
-    * As the Message Reader, I would like to have message with images/videos because text only posts are boring and having something to look at is more entertaining.
-  * I can assign keywords/hashtags to my posts with a minimum of 0 keywords/hashtags. __Testable__
-    * As the Message Creator, I want to be able to give my messages hashtags so my messages can be easily found.
-    * As the Message Reader, I want to be able to search for messages by hashtags to help me find messages that I care about.
+    * As the Message Creator, I would like use images in message because they have more information and I want to express my creative side.
+    * As the Message Reader, I would like to see images in messages because text only posts are boring.
+  * Posts can have hashtags in them. Atleast 0 hashtags. __Testable__
+    * As the Message Creator, I want posts to have hashtags so my messages can be easily found.
+    * As the Message Reader, I want to search for messages by hashtags to help me find messages that I like.
 
 * Post Sharing
-  * I can assign an optional start time for displaying my posts. __Testable__
-    * As the Message Creator, I want to be able to write a message and have it be automatically posted/removed by a time I choose because sometimes I think of stuff to say for certain events and times of the day.
+  * Posts can have an optional start time for displaying posts. __Testable__
+    * As the Message Creator, I want to choose a time for posts to be seen because sometimes I think of stuff to say for certain events and times of the day.
   * If my post contains an optional start time, it becomes viewable once the start time has elapsed. Otherwise it becomes viewable immediately. __Testable__
   * I can assign an optional stop time for displaying my posts.
     * As the Message Creator, I do not want everything I say to be connected back to me because sometimes I may say things that create trouble.
-  * If my post contains an optional stop time, it becomes hidden once the stop time has elapsed. Otherwise it is viewable indefinitely.
-  * I can choose to share my posts anonymously.
-    * As the Message Creator, I would like an option for anonymous messages because sometimes I don't want words to be connected back to me.
-    * As the Message Reader, I want to be able to find anonymous posts because sometimes I don't want to know who wrote those words.
+  * Posts with a stop time should become hidden once the stop time has elapsed. Otherwise it can be seen forever.
+  * Posts can be shared anonymously.
+    * As the Message Creator, I want to make anonymous messages because sometimes I don't want words to be connected back to me.
+    * As the Message Reader, I want anonymous posts because sometimes I don't want to know who wrote those words.
 
 * Buckets
-  * I can see posts organized in collections of related material called buckets.
-  * My front page contains many buckets which I can view where a front page will display atleast 1 bucket, the "Latest Posts" bucket, by default __Testable__
+  * Organize posts in collections of related material called buckets.
+  * The front page has atleast 1 bucket that all users can see. This is the "Lastest Posts" bucket. __Testable__
   * I can specify which buckets I prefer to see on my front page.
   * The most recent post is displayed first in a bucket. __Testable__
-    * As the Message Reader, I want to categorize messages by time because sometimes I am only interested in current events and othertimes I am only interested in messages from a long-time ago.
-  * Have the ability to refresh the posts on a bucket. This could be either a button or a swipe down action on mobile.
+    * As the Message Reader, I want the most recent messages first in a bucket because sometimes the current messages are the only fun ones.
+  * Buckets can be refreshed. This could be a refresh button.
 
 * Log in and account creation
   * I would like to use my facebook or google account to login. __Testable__
