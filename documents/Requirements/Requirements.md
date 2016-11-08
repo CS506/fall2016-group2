@@ -18,9 +18,9 @@
   * Posts can have an optional start time for displaying posts. __Testable__
     * As the Message Creator, I want to choose a time for posts to be seen because sometimes I think of stuff to say for certain events and times of the day.
   * If my post contains an optional start time, it becomes viewable once the start time has elapsed. Otherwise it becomes viewable immediately. __Testable__
-  * I can assign an optional stop time for displaying my posts.
+  * I can assign an optional stop time for displaying my posts. __Testable__
     * As the Message Creator, I do not want everything I say to be connected back to me because sometimes I may say things that create trouble.
-  * Posts with a stop time should become hidden once the stop time has elapsed. Otherwise it can be seen forever.
+  * Posts with a stop time should become hidden once the stop time has elapsed. Otherwise it can be seen forever. __Testable__
   * Posts can be shared anonymously.
     * As the Message Creator, I want to make anonymous messages because sometimes I don't want words to be connected back to me.
     * As the Message Reader, I want anonymous posts because sometimes I don't want to know who wrote those words.
@@ -31,7 +31,7 @@
   * I can specify which buckets I prefer to see on my front page.
   * The most recent post is displayed first in a bucket. __Testable__
     * As the Message Reader, I want the most recent messages first in a bucket because sometimes the current messages are the only fun ones.
-  * Buckets can be refreshed. This could be a refresh button.
+  * Buckets can be refreshed. This could be a refresh button. __Testable__
 
 * Log in and account creation
   * I would like to use my facebook or google account to login. __Testable__
