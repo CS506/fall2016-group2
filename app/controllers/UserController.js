@@ -32,20 +32,21 @@ blueprint.controller (UserController);
 
 UserController.prototype.showMe = function () {
   return function (req, res, callback) {
-
-      function findAuthors(buckets, postsForBukets) {
+// TODO: redo this whole function. Take out findAuthors(), start using unique usernames instead of user ids
+      function findAuthors(buckets, postsForBuckets) {
           var bucketList = [];
           var postToInsert;
           var postAuthor;
 
-          // This section detrermines if the user is the bucket Post author.
+          // TODO: remove this
+          // This whole part can be removed, the user name is already a property of req.user
           for (var i = 0; i < buckets.tags.length; i++) {
               var currentBucket = new bucketHolder(buckets.tags[i]);
-              for (var j = 0; j < postsForBukets.length; j++) {
-                  if (buckets.tags[i] == postsForBukets[j].postTags) {
-                      postToInsert = postsForBukets[j];
+              for (var j = 0; j < postsForBuckets.length; j++) {
+                  if (buckets.tags[i] == postsForBuckets[j].postTags) {
+                      postToInsert = postsForBuckets[j];
                       //currentBucket.bucketPosts.push(bucketPosts[j]);
-                      if (postsForBukets[j].userID === req.user.id) {
+                      if (postsForBuckets[j].userID === req.user.id) {
                           postAuthor = "You";
                       } else {
                           postAuthor = "Someone else";
@@ -60,6 +61,7 @@ UserController.prototype.showMe = function () {
       }
 
       // This is a big ball of callback hell that needs to be separated
+      // TODO: The username is already part of req.user, so the outer call can be removed
       posts.find({userID: req.user.id}, 'postText postTime postTags userID', function (err, result) {
       if (err) return callback(new HttpError(500, 'Cannot retrieve posts'));
       usr.findOne({_id: req.user.id}, 'tags', function (err, buckets) {

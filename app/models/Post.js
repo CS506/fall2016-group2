@@ -1,3 +1,5 @@
+// TODO: work on making an index for this collection on tags
+
 var mongodb = require('@onehilltech/blueprint-mongodb')
   ;
 

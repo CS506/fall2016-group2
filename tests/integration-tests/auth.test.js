@@ -20,7 +20,7 @@ describe('User Test', function () {
             .post('/signup')
             .type('form')
             .send(users[key])
-            .expect(201)
+            .expect(201) // TODO: change to 301
             .end(function(error, response) {
                 if (error) {
                     return done(error);
@@ -34,7 +34,7 @@ describe('User Test', function () {
             .post('/login')
             .type('form')
             .send(users[key])
-            .expect(200)
+            .expect(302)
             .end(function (error, response) {
                 if (error) {
                     return done(error);
@@ -46,7 +46,7 @@ describe('User Test', function () {
     function logoutUser(key, done) {
         request
             .get('/logout')
-            .expect(200)
+            .expect(302)
             .end(function (error, response) {
                 if (error) {
                     return done(error);
