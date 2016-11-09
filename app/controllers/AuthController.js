@@ -18,7 +18,7 @@ AuthController.prototype.login = function () {
             }
             req.logIn(user, function (err) {
                 if (err) { return next(err); }
-                return res.redirect(200, '/users/me');
+                return res.redirect('/users/me');
             });
         })(req, res, next);
     };
@@ -27,7 +27,7 @@ AuthController.prototype.login = function () {
 AuthController.prototype.logout = function () {
   return function (req, res) {
     req.logout ();
-    res.redirect(200, '/login');
+    res.redirect('/login');
   }
 };
 

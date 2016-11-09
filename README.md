@@ -1,3 +1,7 @@
+# Buckets #
+[![Code Climate](https://codeclimate.com/github/CS506/fall2016-group2/badges/gpa.svg)](https://codeclimate.com/github/CS506/fall2016-group2)
+
+
 ## Development Environment Setup ##
 You need to install git, Node.js, and (if not included with Node.js) NPM.
 In general, you'll need Node.js >v4.0.0 and NPM >v3.0.0.

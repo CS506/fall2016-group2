@@ -1,4 +1,5 @@
-function isLoggedIn(req, res, next) {
+
+function isLoggedIn (req, res, next) {
   // if user is authenticated in the session, carry on
   if (req.isAuthenticated ())
     return next ();
@@ -7,12 +8,20 @@ function isLoggedIn(req, res, next) {
   res.redirect ('/login');
 }
 
+var user = require ('../models/User');
+
 module.exports = {
+
   '/users': {
+    //user should be logged in to go to these routes
     use: isLoggedIn,
 
     '/me': {
-      get: {action: 'UserController@showMe'}
+        get: {action: 'UserController@showMe'}
     }
+  },
+
+  '/createBucket' : {
+      post: {action: 'UserController@createBucket'}
   }
 };
