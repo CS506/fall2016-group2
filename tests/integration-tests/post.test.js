@@ -68,7 +68,7 @@ describe('User Test', function () {
             .post('/createPost')
             .type('form')
             .send(posts[key])
-            .expect(201)
+            .expect(302)
             .end(function (error, response) {
                 if (error) { return done(error); }
                 done();
