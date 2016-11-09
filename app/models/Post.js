@@ -4,7 +4,6 @@ var mongodb = require('@onehilltech/blueprint-mongodb')
   ;
 
 var schema = new mongodb.Schema({
-
 	postText: {
 		type: String,
 		required: true,
@@ -19,7 +18,14 @@ var schema = new mongodb.Schema({
 
 	stopTime: {
 		type: Date,
-	}
+	},
+    createdBy: {
+        type: String,
+        index: true,
+        required: true,
+        ref: 'users'
+    }
+
 });
 
 schema.pre('save', function (next) {
