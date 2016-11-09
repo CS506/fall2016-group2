@@ -43,7 +43,8 @@ AuthController.prototype.createAccount = function () {
                 User.create({ username: username, password: password }, function (createErr, newuser) {
                     if (createErr) { return next(createErr); }
                     if (!newuser) { return res.sendStatus(500); }
-                    return res.sendStatus(201);
+                    //return res.sendStatus(201);
+                    return res.redirect('/login');
                 })
             })
         } else { return res.sendStatus(400); }
