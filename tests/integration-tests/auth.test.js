@@ -34,7 +34,7 @@ describe('User Test', function () {
             .post('/signup')
             .type('form')
             .send(users[key])
-            .expect(201) // TODO: change to 301
+            .expect(302)
             .end(function(error, response) {
                 if (error) { return done(error); }
                 done();
