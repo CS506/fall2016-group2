@@ -8,7 +8,7 @@ Date|Average Grade Level|Flesch-Kincaid Reading Ease|
 Date|Percentage|
 ----|----------|
 9-26-2016|0%
-11-8-2016|45%
+11-8-2016|89%
 
 #Testability
 Date|Percentage
