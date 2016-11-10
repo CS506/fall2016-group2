@@ -10,14 +10,12 @@ engines:
     enabled: true
     config:
       languages:
-        #mass_threshold: 30
+        mass_threshold: 30
       - javascript
 ratings:
   paths:
   - app/**
   - lib/**
-  - "**.rb"
-  - "**.go"
 exclude_paths:
 - spec/**/*
 - "**/vendor/**/*"
