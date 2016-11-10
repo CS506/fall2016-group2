@@ -3,7 +3,6 @@ var blueprint = require('@onehilltech/blueprint')
   ;
 
 var User;
-winston.level = 'debug';
 
 blueprint.messaging.on('app.init', function (app) {
     User = app.models.User;
