@@ -1,7 +1,9 @@
 var blueprint = require('@onehilltech/blueprint')
+  , winston = require('winston')
   ;
 
 var User;
+winston.level = 'debug';
 
 blueprint.messaging.on('app.init', function (app) {
     User = app.models.User;
@@ -41,10 +43,9 @@ module.exports = {
             resave: false,
             saveUninitialized: true,
             cookie: { secure: false }  // set to true for https://
-        },
-        
-        static: ["../public/"]
+        }
 
-    }
+    },
+    statics: ["public/"]
 
 };
