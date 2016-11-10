@@ -1,6 +1,3 @@
-/**
- * Created by brandon on 11/2/16.
- */
 var blueprint = require ('@onehilltech/blueprint')
     , HttpError = blueprint.errors.HttpError
     ;
@@ -19,12 +16,14 @@ PostController.prototype.createPost = function () {
         //initialize an empty post
         var msg = {};
 
-        if (req.body.postText) {
+        if (req.body.postText && req.user) {
             msg.postText = req.body.postText;
+            msg.createdBy = req.user.username;
             Post.create(msg, function (err, newpost) {
                 if (err) { return next(err); }
                 if (!newpost) { return res.sendStatus(500); }
-                return res.sendStatus(201);
+                //return res.sendStatus(201);
+                return res.redirect('/users/me');
             });
         }
         else { return res.sendStatus(400); }

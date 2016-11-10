@@ -1,14 +1,22 @@
 'use strict';
 
 var mongodb = require ('@onehilltech/blueprint-mongodb')
+  , validator = require('validator')
   ;
 
-var posts = require ('../models/Post');
-
 var schema = new mongodb.Schema({
-  username: {unique: true, type: String, required: true, trim: true},
-  password: {type: String, required: true},
-  tags: {type: Array, required: false}
+    username: {
+        index: { unique: true },
+        type: String,
+        required: true,
+        trim: true,
+        validate: [
+            validator.isAlphanumeric,
+            validator.isLowercase
+        ]
+    },
+    password: {type: String, required: true},
+    tags: { type: Array }
 });
 
 // The password should be encrypted and stored in the database.

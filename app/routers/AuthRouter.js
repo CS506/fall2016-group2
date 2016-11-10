@@ -21,9 +21,8 @@ module.exports = {
     },
 
     '/logout': {
-        //user should be logged in to go to this route.
-        // use: isLoggedIn,
 
+        use: isLoggedIn,
         get: {action: 'AuthController@logout'}
     },
 

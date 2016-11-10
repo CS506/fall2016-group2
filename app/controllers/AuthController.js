@@ -18,7 +18,7 @@ AuthController.prototype.login = function () {
             }
             req.logIn(user, function (err) {
                 if (err) { return next(err); }
-                return res.redirect(200, '/users/me'); //returning a status code displays a redirecting page
+                return res.redirect('/users/me');
             });
         })(req, res, next);
     };
@@ -27,7 +27,7 @@ AuthController.prototype.login = function () {
 AuthController.prototype.logout = function () {
   return function (req, res) {
     req.logout ();
-    res.redirect(200, '/login');
+    res.redirect('/login');
   }
 };
 
@@ -43,7 +43,8 @@ AuthController.prototype.createAccount = function () {
                 User.create({ username: username, password: password }, function (createErr, newuser) {
                     if (createErr) { return next(createErr); }
                     if (!newuser) { return res.sendStatus(500); }
-                    return res.sendStatus(201);
+                    //return res.sendStatus(201);
+                    return res.redirect('/login');
                 })
             })
         } else { return res.sendStatus(400); }

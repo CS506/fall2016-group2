@@ -8,23 +8,35 @@ var async = require('async')
   , describe = require("mocha").describe
   , users = require('../fixtures/users')
   , after = require("mocha").after
-  , UserDB = require('../../app/models/User')
-  , mongoose = require('mongoose');
+  , User = require('../../app/models/User')
 
 describe('User Test', function () {
     var server;
     var request;
+
+    before(function (done) {
+        async.waterfall([
+            function (callback) {
+                blueprint.testing.createApplicationAndStart(appPath, callback)
+            },
+
+            function (app, callback) {
+                server = app.server;
+                request = require('supertest')(server.app);
+
+                return callback(null);
+            }
+        ], done);
+    });
 
     function createUser(key, done) {
         request
             .post('/signup')
             .type('form')
             .send(users[key])
-            .expect(201)
+            .expect(302)
             .end(function(error, response) {
-                if (error) {
-                    return done(error);
-                }
+                if (error) { return done(error); }
                 done();
             });
     }
@@ -34,46 +46,24 @@ describe('User Test', function () {
             .post('/login')
             .type('form')
             .send(users[key])
-            .expect(200)
+            .expect(302)
+            .expect('Location', /\/users\/me/)
             .end(function (error, response) {
-                if (error) {
-                    return done(error);
-                }
+                if (error) { return done(error); }
                 done();
             });
     }
 
-    function logoutUser(key, done) {
+    function logoutUser(done) {
         request
             .get('/logout')
-            .expect(200)
+            .expect(302)
+            .expect('Location', /\/login/)
             .end(function (error, response) {
-                if (error) {
-                    return done(error);
-                }
+                if (error) { return done(error); }
                 done();
             });
     }
-
-    before(function (done) {
-        async.waterfall([
-            function(callback) {
-                blueprint.testing.createApplicationAndStart(appPath, callback)
-            },
-
-            function(app, callback) {
-                server = app.server;
-                request = require('supertest')(server.app);
-
-                return callback(null);
-            }
-        ], done);
-    });
-
-    after(function (done) {
-        mongoose.connection.db.dropCollection('users');
-        done();
-    });
 
     it('should create a single user', function(done) {
         createUser(0, done);
@@ -90,9 +80,7 @@ describe('User Test', function () {
             .send({ username: null, password: "somepassword" })
             .expect(400)
             .end(function (error, response) {
-                if (error) {
-                    return done(error);
-                }
+                if (error) { return done(error); }
                 done();
             });
     });
@@ -104,9 +92,7 @@ describe('User Test', function () {
             .send({ username: "someuser", password: null })
             .expect(400)
             .end(function (error, response) {
-                if (error) {
-                    return done(error);
-                }
+                if (error) { return done(error); }
                 done();
             });
     });
@@ -122,19 +108,17 @@ describe('User Test', function () {
             .send(users[0])
             .expect(409)
             .end(function (error, response) {
-                if (error) {
-                    return done(error);
-                }
+                if (error) { return done(error); }
                 done();
             });
     });
 
-    it('can login the first user', function (done) {
+    it('can login the first user and redirect to /users/me', function (done) {
         loginUser(0, done);
     });
 
-    it('can logout the first user', function (done) {
-        logoutUser(0, done);
+    it('can logout the first user and redirect to /login', function (done) {
+        logoutUser(done);
     });
 
     it('can not login with incorrect credentials', function (done) {
@@ -144,13 +128,14 @@ describe('User Test', function () {
             .send({ username: users[0].username, password: "incorrect" } )
             .expect(422)
             .end(function (error, response) {
-                if (error) {
-                    return done(error);
-                }
+                if (error) { return done(error); }
                 done();
             });
     });
 
-
+    after(function (done) {
+        User.remove().exec();
+        done();
+    });
 
 });
