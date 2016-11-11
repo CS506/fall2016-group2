@@ -16,7 +16,11 @@ addons:
 services:
   - mongodb
 after_succes:
-  - npm run coverage
-  - npm run codeclimate-test-reporter
+  # - npm run coverage
+  # - npm run codeclimate-test-reporter
+
+  #Got help from Zach in Group 1
+  #and their .travis.yml files for this line
+  - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
 notifications:
   email: false
