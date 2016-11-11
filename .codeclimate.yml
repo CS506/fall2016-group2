@@ -1,0 +1,21 @@
+engines:
+  eslint:
+    enabled: true
+    channel: "eslint-3"
+  csslint:
+    enabled: true
+  nodesecurity:
+    enabled: true
+  duplication:
+    enabled: true
+    config:
+      languages:
+        mass_threshold: 30
+      - javascript
+ratings:
+  paths:
+  - app/**
+  - lib/**
+exclude_paths:
+- spec/**/*
+- "**/vendor/**/*"

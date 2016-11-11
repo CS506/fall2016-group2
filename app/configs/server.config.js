@@ -46,5 +46,4 @@ module.exports = {
 
     },
     statics: ["public/"]
-
 };
