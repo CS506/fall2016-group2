@@ -1,0 +1,43 @@
+body
+{
+	width:100%;
+	height:100%;
+}
+
+div.container
+{
+	width:50%; 
+	transform: translate(25%, 15%);
+}
+
+div.logo
+{
+	transform: translate(15%,0%);
+}
+
+img
+{
+	align="middle"; 
+	height:125px; 
+	width:125px;
+}
+
+p#logo-name
+{
+	font-size:250%; 
+	font-family:Monospace; 
+	color:#00ace6;
+}
+
+form
+{
+	width: 50%; 
+	padding: 10px; 
+	border-style:groove; 
+	border-radius:10px;
+}
+
+button
+{
+	transform:translate(160%,0%);
+}
