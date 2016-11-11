@@ -1,5 +1,6 @@
 # Buckets #
 [![Code Climate](https://codeclimate.com/github/CS506/fall2016-group2/badges/gpa.svg)](https://codeclimate.com/github/CS506/fall2016-group2)
+[![Coverage Status](https://coveralls.io/repos/github/CS506/fall2016-group2/badge.svg?branch=master)](https://coveralls.io/github/CS506/fall2016-group2?branch=master)
 
 
 ## Development Environment Setup ##
