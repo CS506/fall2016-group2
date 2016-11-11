@@ -15,12 +15,17 @@ node_js:
 #       repo_token: <>
 services:
   - mongodb
-after_succes:
+
+script:
+  - npm test --coverage
+
+after_script:
   # - npm run coverage
   # - npm run codeclimate-test-reporter
 
   #Got help from Zach in Group 1
   #and their .travis.yml files for this line
   - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
+
 notifications:
   email: false
