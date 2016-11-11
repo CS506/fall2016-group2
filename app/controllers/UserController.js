@@ -54,9 +54,8 @@ UserController.prototype.showMe = function () {
 
         posts.find({createdBy: req.user._id}, 'postText tags', function (err, result) {
             if (err) return callback(new HttpError(500, 'Cannot retrieve posts'));
-            posts.find({postTags: {$in: req.user.tags}}, 'postText postTime postTags userID', function (err,postList) {
+            posts.find({$text: {$search: req.user.tags.join(" ")}}, 'postText tags', function (err,postList) {
                 if (err) return callback(new HttpError(500, 'Cannot retrieve posts'));
-
                 var bucketList = sortPosts(req.user.tags, postList);
 
                 res.render('user.handlebars', {
