@@ -52,7 +52,7 @@ UserController.prototype.showMe = function () {
             return bucketList;
         }
 
-        posts.find({userID: req.user.id}, 'postText postTime postTags userID', function (err, result) {
+        posts.find({createdBy: req.user._id}, 'postText tags', function (err, result) {
             if (err) return callback(new HttpError(500, 'Cannot retrieve posts'));
             posts.find({postTags: {$in: req.user.tags}}, 'postText postTime postTags userID', function (err,postList) {
                 if (err) return callback(new HttpError(500, 'Cannot retrieve posts'));
