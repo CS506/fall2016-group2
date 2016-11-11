@@ -10,13 +10,13 @@ var schema = new mongodb.Schema({
         type: String,
         required: true,
         trim: true,
-        validate: [
-            validator.isAlphanumeric,
-            validator.isLowercase
-        ]
+        validate: validator.isAlphanumeric
     },
     password: {type: String, required: true},
-    tags: { type: Array }
+    tags: {
+        type: [String],
+        lowercase: true
+    }
 });
 
 // The password should be encrypted and stored in the database.
