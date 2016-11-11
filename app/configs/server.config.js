@@ -41,6 +41,10 @@ module.exports = {
       resave: false,
       saveUninitialized: true,
       cookie: { secure: false }  // set to true for https://
-    }
+    },
+
+    statics: ["../public_html/"]
+
   }
+
 };
