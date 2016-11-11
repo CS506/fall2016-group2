@@ -18,11 +18,10 @@ PostController.prototype.createPost = function () {
 
         if (req.body.postText && req.user) {
             msg.postText = req.body.postText;
-            msg.createdBy = req.user.username;
+            msg.createdBy = req.user._id;
             Post.create(msg, function (err, newpost) {
                 if (err) { return next(err); }
                 if (!newpost) { return res.sendStatus(500); }
-                //return res.sendStatus(201);
                 return res.redirect('/users/me');
             });
         }

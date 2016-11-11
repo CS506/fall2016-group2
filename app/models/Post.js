@@ -10,7 +10,11 @@ var schema = new mongodb.Schema({
 		trim: true
 	},
 
-	tags: { type: Array },
+	tags: {
+	    type: [String],
+        lowercase: true,
+        index: true
+	},
 
 	startTime: {
 		type: Date,
@@ -20,7 +24,7 @@ var schema = new mongodb.Schema({
 		type: Date,
 	},
     createdBy: {
-        type: String,
+        type: mongodb.Schema.Types.ObjectId,
         index: true,
         required: true,
         ref: 'users'
@@ -39,12 +43,19 @@ schema.pre('update', function (next) {
 });
 
 schema.methods.setTags = function () {
+    // Expression based on commonly accepted hashtag pattern
+    // Split into matching groups to allow match without hashtag symbol
     var regex = /(^|\B)#([A-Za-z_][A-Za-z0-9_]*)/g
       , t = []
       , tags = [];
     
+    // Execute regex on string. For each match, set match to 't' and enter loop
     while ((t = regex.exec(this.postText)) !== null) {
-        tags.push(t[2]);
+        // If tag (excluding hashtag symbol) doesn't exist in array, push tag
+        let pendingTag = t[2];
+        if (!tags.includes(pendingTag)) {
+            tags.push(pendingTag);
+        }
     }
   
     this.tags = tags;
