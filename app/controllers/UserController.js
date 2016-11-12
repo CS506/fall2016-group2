@@ -52,7 +52,6 @@ UserController.prototype.showMe = function () {
                 var currentBucket = new bucketHolder(buckets[i]);
                 for (var j = 0; j < postsForBuckets.length; j++) {
                     if (inArray(buckets[i], postsForBuckets[j].tags)) {
-                    // if (buckets[i] == postsForBuckets[j].tags) {
                         postToInsert = postsForBuckets[j];
                         var currentPost = new bucketPost(postToInsert, postAuthor);
                         currentBucket.msgList.push(currentPost);
