@@ -1,7 +1,5 @@
 'use strict';
 
-//TODO: figure out how to deal with the HttpError
-
 var blueprint = require('@onehilltech/blueprint')
     ;
 
