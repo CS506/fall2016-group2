@@ -8,6 +8,12 @@ var schema = new mongodb.Schema({
 		trim: true
 	},
 
+    postTime: {
+        type: Date,
+        required: true,
+        trim: true,
+    },
+
 	tags: {
 	    type: [String],
         lowercase: true,
