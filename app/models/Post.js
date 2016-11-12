@@ -1,5 +1,3 @@
-// TODO: work on making an index for this collection on tags
-
 var mongodb = require('@onehilltech/blueprint-mongodb')
   ;
 
@@ -9,6 +7,12 @@ var schema = new mongodb.Schema({
 		required: true,
 		trim: true
 	},
+
+    postTime: {
+        type: Date,
+        required: true,
+        trim: true,
+    },
 
 	tags: {
 	    type: [String],

@@ -1,7 +1,5 @@
 'use strict';
 
-//TODO: figure out how to deal with the HttpError
-
 var blueprint = require('@onehilltech/blueprint')
     ;
 
@@ -28,6 +26,16 @@ function UserController() {
     blueprint.BaseController.call(this);
 }
 
+function inArray(string, array) {
+
+    for (var k = 0; k < array.length; k++) {
+        if (string == array[k]) {
+            return true;
+        }
+    }
+    return false;
+}
+
 blueprint.controller(UserController);
 
 UserController.prototype.showMe = function () {
@@ -41,7 +49,7 @@ UserController.prototype.showMe = function () {
             for (var i = 0; i < buckets.length; i++) {
                 var currentBucket = new bucketHolder(buckets[i]);
                 for (var j = 0; j < postsForBuckets.length; j++) {
-                    if (buckets[i] == postsForBuckets[j].postTags) {
+                    if (inArray(buckets[i], postsForBuckets[j].tags)) {
                         postToInsert = postsForBuckets[j];
                         var currentPost = new bucketPost(postToInsert, postAuthor);
                         currentBucket.msgList.push(currentPost);
@@ -52,9 +60,9 @@ UserController.prototype.showMe = function () {
             return bucketList;
         }
 
-        posts.find({userID: req.user.id}, 'postText postTime postTags userID', function (err, result) {
+        posts.find({createdBy: req.user._id}, 'postText postTime tags', function (err, result) {
             if (err) return callback(new HttpError(500, 'Cannot retrieve posts'));
-            posts.find({postTags: {$in: req.user.tags}}, 'postText postTime postTags userID', function (err,postList) {
+            posts.find({$text: {$search: req.user.tags.join(" ")}}, 'postText postTime tags createdBy', function (err,postList) {
                 if (err) return callback(new HttpError(500, 'Cannot retrieve posts'));
 
                 var bucketList = sortPosts(req.user.tags, postList);

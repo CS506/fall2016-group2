@@ -28,6 +28,7 @@ describe('Post Model Test', function () {
                 User.create(postuser, function (err, newuser) {
                     for (let item of posts) {
                         item.createdBy = newuser.id;
+                        item.postTime = new Date();
                         Post.create(item);
                     }
                     callback(null);
