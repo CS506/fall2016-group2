@@ -28,6 +28,16 @@ function UserController() {
     blueprint.BaseController.call(this);
 }
 
+function inArray(string, array) {
+
+    for (var k = 0; k < array.length; k++) {
+        if (string == array[k]) {
+            return true;
+        }
+    }
+    return false;
+}
+
 blueprint.controller(UserController);
 
 UserController.prototype.showMe = function () {
@@ -41,7 +51,8 @@ UserController.prototype.showMe = function () {
             for (var i = 0; i < buckets.length; i++) {
                 var currentBucket = new bucketHolder(buckets[i]);
                 for (var j = 0; j < postsForBuckets.length; j++) {
-                    if (buckets[i] == postsForBuckets[j].postTags) {
+                    if (inArray(buckets[i], postsForBuckets[j].tags)) {
+                    // if (buckets[i] == postsForBuckets[j].tags) {
                         postToInsert = postsForBuckets[j];
                         var currentPost = new bucketPost(postToInsert, postAuthor);
                         currentBucket.msgList.push(currentPost);
@@ -54,8 +65,9 @@ UserController.prototype.showMe = function () {
 
         posts.find({createdBy: req.user._id}, 'postText tags', function (err, result) {
             if (err) return callback(new HttpError(500, 'Cannot retrieve posts'));
-            posts.find({$text: {$search: req.user.tags.join(" ")}}, 'postText tags', function (err,postList) {
+            posts.find({$text: {$search: req.user.tags.join(" ")}}, 'postText tags createdBy', function (err,postList) {
                 if (err) return callback(new HttpError(500, 'Cannot retrieve posts'));
+
                 var bucketList = sortPosts(req.user.tags, postList);
 
                 res.render('user.handlebars', {
