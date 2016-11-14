@@ -5,17 +5,19 @@ engines:
   csslint:
     enabled: true
   nodesecurity:
-    enabled: false
+    enabled: true
   duplication:
     enabled: true
-  config:
-    languages:
-    #mass_threshold: 30
-    - javascript
+    config:
+      languages:
+        #mass_threshold: 30
+      - javascript
 ratings:
   paths:
   - app/**
   - lib/**
+  - "**.rb"
+  - "**.go"
 exclude_paths:
-  - spec/**/*
-  - "**/vendor/**/*"
+- spec/**/*
+- "**/vendor/**/*"
