@@ -37,7 +37,22 @@ form
 	border-radius:10px;
 }
 
-button
+button.btn btn-default
 {
 	transform:translate(160%,0%);
+}
+
+div#submit
+{
+	float:left;
+}
+
+div#cancel
+{
+	float:right;
+}
+
+b#create
+{
+	font-size:150%;
 }
