@@ -19,7 +19,7 @@ AuthController.prototype.login = function () {
             }
             req.logIn(user, function (err) {
                 if (err) { return next(err); }
-                return res.redirect('/users/me');
+                res.redirect('/home');
             });
         })(req, res, next);
     };
@@ -45,7 +45,7 @@ AuthController.prototype.createAccount = function () {
                     if (createErr) { return next(createErr); }
                     if (!newuser) { return res.sendStatus(500); }
                     //return res.sendStatus(201);
-                    return res.redirect('/login');
+                    res.redirect('/login');
                 })
             })
         } else { return res.sendStatus(400); }
