@@ -3,16 +3,16 @@ dist: trusty
 language: node_js
 node_js:
   - '6'
-# env:
-#   - CXX=g++-4.8
-# addons:
-#   apt:
-#     sources:
-#       - ubuntu-toolchain-r-test
-#     packages:
-#       - g++-4.8
-#     code_climate:
-#       repo_token: <>
+env:
+  - CXX=g++-4.8
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - g++-4.8
+    code_climate:
+      repo_token: <>
 services:
   - mongodb
 
@@ -20,12 +20,12 @@ script:
   - npm test --coverage
 
 after_script:
-  # - npm run coverage
+  - npm run coverage
   # - npm run codeclimate-test-reporter
 
   #Got help from Zach in Group 1
   #and their .travis.yml files for this line
-  - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
+#  - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
 
 notifications:
   email: false
