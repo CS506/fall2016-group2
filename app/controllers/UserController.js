@@ -1,10 +1,12 @@
 'use strict';
 
 var blueprint = require('@onehilltech/blueprint')
-    ;
+;
 
-var usr = blueprint.app.models.User;
-var posts = blueprint.app.models.Post;
+var User = blueprint.app.models.User
+  , Post = blueprint.app.models.Post
+;
+
 
 class bucketPost {
     constructor(post, author) {
@@ -19,8 +21,6 @@ class bucketHolder {
         this.msgList = [];
     }
 }
-
-module.exports = UserController;
 
 function UserController() {
     blueprint.BaseController.call(this);
@@ -60,9 +60,9 @@ UserController.prototype.showMe = function () {
             return bucketList;
         }
 
-        posts.find({createdBy: req.user._id}, 'postText postTime tags', function (err, result) {
+        Post.find({ createdBy: req.user._id }, 'postText postTime tags', function (err, result) {
             if (err) return callback(new HttpError(500, 'Cannot retrieve posts'));
-            posts.find({$text: {$search: req.user.tags.join(" ")}}, 'postText postTime tags createdBy', function (err,postList) {
+            Post.find({ $text: { $search: req.user.tags.join(" ") } }, 'postText postTime tags createdBy', function (err, postList) {
                 if (err) return callback(new HttpError(500, 'Cannot retrieve posts'));
 
                 var bucketList = sortPosts(req.user.tags, postList);
@@ -82,7 +82,7 @@ UserController.prototype.createBucket = function () {
     return {
         execute: function (req, res, callback) {
             var bucketName = req.body.bucketTag;
-            usr.findOne({_id: req.user.id}, function (err, usr) {
+            User.findById(req.user.id, function (err, usr) {
                 if (err) throw err;
                 usr.tags.push(bucketName.toLowerCase());
                 usr.save(function (err) {
@@ -93,3 +93,5 @@ UserController.prototype.createBucket = function () {
         }
     }
 };
+
+module.exports = UserController;

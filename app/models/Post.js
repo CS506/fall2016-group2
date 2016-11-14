@@ -37,16 +37,14 @@ var schema = new mongodb.Schema({
 });
 
 schema.pre('save', function (next) {
-    this.setTags();
-    next();
+    this.setTags(next);
 });
 
 schema.pre('update', function (next) {
-    this.setTags();
-    next();
+    this.setTags(next);  
 });
 
-schema.methods.setTags = function () {
+schema.methods.setTags = function (next) {
     // Expression based on commonly accepted hashtag pattern
     // Split into matching groups to allow match without hashtag symbol
     var regex = /(^|\B)#([A-Za-z_][A-Za-z0-9_]*)/g
@@ -63,7 +61,7 @@ schema.methods.setTags = function () {
     }
   
     this.tags = tags;
+    next();
 };
 
-const COLLECTION_NAME = 'post';
-module.exports = mongodb.model (COLLECTION_NAME, schema);
+module.exports = mongodb.model ('posts', schema);

@@ -1,7 +1,8 @@
 var blueprint = require('@onehilltech/blueprint')
-  , User = require('../models/User')
   , passport = require('passport')
   ;
+
+var User = blueprint.app.models.User;
 
 function AuthController () {
   blueprint.BaseController.call (this);
