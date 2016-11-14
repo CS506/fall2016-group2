@@ -8,11 +8,13 @@ var async = require('async')
   , describe = require("mocha").describe
   , users = require('../fixtures/users')
   , after = require("mocha").after
-  , User = require('../../app/models/User')
+;
 
 describe('User Test', function () {
-    var server;
-    var request;
+    var server
+      , request
+      , User
+    ;
 
     before(function (done) {
         async.waterfall([
@@ -23,6 +25,7 @@ describe('User Test', function () {
             function (app, callback) {
                 server = app.server;
                 request = require('supertest')(server.app);
+                User = app.models.User;
 
                 return callback(null);
             }
@@ -47,7 +50,7 @@ describe('User Test', function () {
             .type('form')
             .send(users[key])
             .expect(302)
-            .expect('Location', /\/users\/me/)
+            .expect('Location', /\/home/)
             .end(function (error, response) {
                 if (error) { return done(error); }
                 done();

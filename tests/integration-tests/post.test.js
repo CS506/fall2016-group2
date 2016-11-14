@@ -9,22 +9,22 @@ var async = require('async')
   , posts = require('../fixtures/posts')
   , after = require("mocha").after
   , request = require('supertest')
-  , User = require('../../app/models/User')
-  , Post = require('../../app/models/Post')
 ;
 
 describe('User Test', function () {
-    var server;
-    var agent;
+    var server
+      , agent
+      , User
+      , Post
+      , new_user
+    ;
+
     var postuser = {
         "username": "asdobson",
         "password": "test1234"
     };
 
     before(function (done) {
-        var new_user = new User(postuser);
-        new_user.save();
-
         async.waterfall([
             function (callback) {
                 blueprint.testing.createApplicationAndStart(appPath, callback)
@@ -33,6 +33,11 @@ describe('User Test', function () {
             function (app, callback) {
                 server = app.server;
                 agent = request.agent(server.app);
+                User = app.models.User;
+                Post = app.models.Post;
+
+                new_user = new User(postuser);
+                new_user.save();
 
                 return callback(null);
             }
@@ -45,7 +50,7 @@ describe('User Test', function () {
             .type('form')
             .send(postuser)
             .expect(302)
-            .expect('Location', /\/users\/me/)
+            .expect('Location', /\/home/)
             .end(function (error, response) {
                 if (error) { return done(error); }
                 done();
@@ -126,6 +131,42 @@ describe('User Test', function () {
 
     it('should create a different authenticated post', function (done) {
         createPost(1, done);
+    });
+
+    it('should add a favorite Bucket to the logged in user', function (done) {
+        agent
+            .post('/addBucket')
+            .type('form')
+            .send({ bucketTag: "wonderful" })
+            .expect(302)
+            .expect('Location', /\/home/)
+            .end(function (error, response) {
+                if (error) { return done(error); }
+                done();
+            });
+    });
+
+    it('find the new bucket in the user\'s account info', function (done) {
+        User.findOne({ username: "asdobson" }, function (error, user) {
+            if (error) { return done(error); }
+            user.tags.should.contain("wonderful");
+            done();
+        });
+    });
+
+    it('can still render home page after bucket insert',function (done) {
+        agent
+            .get('/home')
+            .expect(200)
+            .end(function (error, response) {
+                if (error) {
+                    return done(error);
+                }
+
+                var body = response.body;
+                //assert(response.body.bucketList['wonderful']);
+                done();
+            });
     });
 
     it('logout a user', function (done) {

@@ -22,7 +22,7 @@ PostController.prototype.createPost = function () {
             Post.create(msg, function (err, newpost) {
                 if (err) { return next(err); }
                 if (!newpost) { return res.sendStatus(500); }
-                return res.redirect('/users/me');
+                return res.redirect('/home');
             });
         }
         else { return res.sendStatus(400); }
