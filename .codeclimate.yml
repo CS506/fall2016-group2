@@ -8,14 +8,14 @@ engines:
     enabled: false
   duplication:
     enabled: true
-    config:
-      languages:
-        mass_threshold: 30
-      - javascript
+  config:
+    languages:
+    #mass_threshold: 30
+    - javascript
 ratings:
   paths:
   - app/**
   - lib/**
 exclude_paths:
-- spec/**/*
-- "**/vendor/**/*"
+  - spec/**/*
+  - "**/vendor/**/*"
