@@ -1,23 +1,23 @@
---- 
-engines: 
-  csslint: 
+engines:
+  eslint:
     enabled: true
-  duplication: 
-    config: 
-      languages: 
+    channel: "eslint-3"
+  csslint:
+    enabled: true
+  nodesecurity:
+    enabled: false
+  duplication:
+    enabled: true
+    config:
+      languages:
+        #mass_threshold: 30
         - javascript
-    enabled: true
-  eslint: 
-    channel: eslint-3
-    enabled: true
-  nodesecurity: 
-    enabled: true
-exclude_paths: 
-  - spec/**/*
-  - "**/vendor/**/*"
-ratings: 
-  paths: 
-    - app/**
-    - lib/**
-    - "**.rb"
-    - "**.go"
+ratings:
+  paths:
+  - app/**
+  - lib/**
+  - "**.rb"
+  - "**.go"
+exclude_paths:
+- spec/**/*
+- "**/vendor/**/*"
