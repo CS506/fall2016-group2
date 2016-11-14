@@ -5,13 +5,13 @@ engines:
   csslint:
     enabled: true
   nodesecurity:
-    enabled: true
+    enabled: false
   duplication:
     enabled: true
     config:
       languages:
         #mass_threshold: 30
-      - javascript
+        - javascript
 ratings:
   paths:
   - app/**
