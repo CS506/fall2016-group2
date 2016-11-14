@@ -2,8 +2,7 @@ var blueprint = require ('@onehilltech/blueprint')
     , HttpError = blueprint.errors.HttpError
     ;
 
-var Post = require ('../models/Post.js')
-    ;
+var Post = Post = blueprint.app.models.Post;
 
 function PostController () {
     blueprint.BaseController.call (this);

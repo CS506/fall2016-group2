@@ -64,6 +64,4 @@ schema.methods.setTags = function (next) {
     next();
 };
 
-//schema.methods.getPostsByTag = function
-
 module.exports = mongodb.model ('posts', schema);
