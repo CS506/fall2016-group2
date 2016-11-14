@@ -20,7 +20,7 @@
         <p><a href="/createPost">New Post</a></p>
     </div>
 
-    <form method="post" action="/createBucket">
+    <form method="post" action="/addBucket">
         <div class="form-group">
             <label for="tag">New Bucket</label>
             <input type="text" class="form-control" id="bucketTag" name="bucketTag" placeholder="Enter tag for bucket">
@@ -38,9 +38,9 @@
     <h1>Buckets</h1>
     <div class="container">
         {{#each bucketList}}
-            <h3>{{this.tag}}</h3>
-            {{#each this.msgList}}
-            <li>{{this.author}} posted: {{this.post.postText}} @ {{this.post.postTime}}</li>
+            <h3>{{@key}}</h3>
+            {{#each this}}
+            <li>{{this.createdBy}} posted: {{this.postText}} @ {{this.postTime}}</li>
             {{/each}}
         {{/each}}
     </div>

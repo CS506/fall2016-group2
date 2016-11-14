@@ -15,7 +15,7 @@ var schema = new mongodb.Schema({
     password: {type: String, required: true},
     tags: {
         type: [String],
-        lowercase: true
+        lowercase: true,
     }
 });
 

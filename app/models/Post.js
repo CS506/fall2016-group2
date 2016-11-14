@@ -64,4 +64,46 @@ schema.methods.setTags = function (next) {
     next();
 };
 
+//Find posts with given tag. Limit results to 'max' number of freshest posts.
+schema.statics.getPostsByTag = function (tag, max, next) {
+    // TODO: Populate creator info
+    // Using aggregate to take advantage of piping optimizations
+    this.aggregate(
+        // TODO: add { stopTime: { $lt: currentTime } } 
+        // and { startTime { $gt: currentTime } } to $match
+        { $match: { tags: tag } },
+        { $sort: { startTime: -1 } },
+        { $limit: max }
+    ).
+    exec(function (err, posts) {
+        if (err) { return next(err) }
+        next(null, posts);
+    });
+};
+
+schema.statics.getPostsByTags = function (tags, next) {
+    
+    var max = 10 // Max number of posts to get for each tag
+      , postList = {}
+      , inserted = 0
+    ;
+    
+    if (tags.length == 0) { return next(null, null); }
+
+    for (let i = 0; i < tags.length; i++) {
+        let tag = tags[i];
+
+        this.getPostsByTag(tag, max, function (err, posts) {
+            if (err) { return next(err); }
+
+            postList[tag] = posts;
+
+            // Waits to return postList after all async calls are complete
+            if (++inserted == tags.length) {
+                return next(null, postList);
+            }
+        });
+    }
+};
+
 module.exports = mongodb.model ('posts', schema);
