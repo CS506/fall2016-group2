@@ -25,5 +25,4 @@ schema.methods.verifyPassword = function (password) {
   return this.password === password;
 };
 
-const COLLECTION_NAME = 'users';
-module.exports = mongodb.model (COLLECTION_NAME, schema);
+module.exports = mongodb.model ('users', schema);

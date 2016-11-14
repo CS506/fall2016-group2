@@ -30,5 +30,6 @@ PostController.prototype.createPost = function () {
     };
 };
 
+
 module.exports = PostController;
 
