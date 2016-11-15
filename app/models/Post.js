@@ -82,7 +82,6 @@ schema.statics.getPostsByTag = function (tag, max, next) {
 };
 
 schema.statics.getPostsByTags = function (tags, next) {
-    
     var max = 10 // Max number of posts to get for each tag
       , postList = {}
       , inserted = 0
@@ -90,9 +89,7 @@ schema.statics.getPostsByTags = function (tags, next) {
     
     if (tags.length == 0) { return next(null, null); }
 
-    for (let i = 0; i < tags.length; i++) {
-        let tag = tags[i];
-
+    for (let tag of tags) {
         this.getPostsByTag(tag, max, function (err, posts) {
             if (err) { return next(err); }
 

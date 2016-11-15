@@ -13,9 +13,15 @@ blueprint.controller (AuthController);
 AuthController.prototype.login = function () {
     return function (req, res, next) {
         passport.authenticate('local', function (err, user, info) {
-            if (err) { return next(err); }
+            if (err) {
+                return res.status(500).render('login.handlebars', {
+                    error: 'Internal Server Error.'
+                });
+            }
             if (!user) {
-                return res.sendStatus(422);
+                return res.status(422).render('login.handlebars', {
+                    error: 'Ivalid Username or Password.'
+                });
             }
             req.logIn(user, function (err) {
                 if (err) { return next(err); }
