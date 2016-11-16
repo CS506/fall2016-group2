@@ -73,17 +73,7 @@ schema.statics.getPostsByTag = function (tag, max, next) {
         // and { startTime { $gt: currentTime } } to $match
         { $match: { tags: tag } },
         { $sort: { startTime: -1 } },
-        { $limit: max },
-        { $lookup: {from: "users", localField: "createdBy", foreignField: "_id", as: "creator"}},
-        { $project: {
-            "postText": 1,
-            "postTime": 1,
-            "tags": 1,
-            "startTime": 1,
-            "stopTime": 1,
-            "createdBy": 1,
-            "username": "$creator.username"
-        }}
+        { $limit: max }
     ).
     exec(function (err, posts) {
         if (err) { return next(err) }

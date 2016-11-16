@@ -31,7 +31,7 @@
     <h1>User Posts</h1>
     <div class="container">
     {{#each msg}}
-        <li>{{this.username}} #{{this.postTags}} @ {{this.postTime}}</li>
+        <li>{{this.postText}} #{{this.postTags}} @ {{this.postTime}}</li>
     {{/each}}
     </div>
 
@@ -40,7 +40,7 @@
         {{#each bucketList}}
             <h3>{{@key}}</h3>
             {{#each this}}
-            <li>{{this.username}} posted: {{this.postText}} @ {{this.postTime}}</li>
+            <li>{{this.createdBy}} posted: {{this.postText}} @ {{this.postTime}}</li>
             {{/each}}
         {{/each}}
     </div>
