@@ -5,9 +5,11 @@
 
 ##Project Reqirements New
 * Web pages and basic validation
-  * There should be a front page that all users can see. __Testable__ __High Priority__
-  * There should be a sign up page for users to create an account. __Testable__ __High Priority__
-  * There should be a login page for users to be able to login. __Testable__ __High Priority__
+  * There is a front page that all users can see. This page has buckets and posts that the user likes to view. __Testable__ __High Priority__
+  * There is a sign up page for users to create an account. __Testable__ __High Priority__
+  * There is a login page for users to be able to login. __Testable__ __High Priority__
+  * There us a page for a user to create a new posts. __Testable__ __High Priority__
+  * Once logged in, the user should be able to logout. __Testable__ __High Priority__
   * No one can use the system if they are not logged in. __Testable__ __High Priority__
 
 * Post Creation
@@ -42,5 +44,9 @@
 * Log in and account creation
   * I would like to use my facebook or google account to login. __Testable__ __Low Priority__
     * As the User, I would like to use my facebook or google account to login because I won't need to remember any more passwords.
-    * As the system, I would like users to login with another service because managing user accounts is painful.
-    * As the coder, I would like users to login with another service because this way I do not have to worry about account creation, validation, security, account recovery, and possibly account deletion.
+    * As the system, I would like users to login with another service because it sucks to manage user accounts.
+    * As the coder, I would like users to login with another service because this way I do not need to think about account validation and security.
+  * I would like to use my facebook or google account to signup. __Testable__ __Low Priority__
+    * As the User, I would like to use my facebook or google account to signup because filling out forms is annoying.
+    * As The system, I would like users to sign up with another service because organizing account information takes alot of storage and processing time.
+    * As the code, I would like users to signup with another service because this way I do not need to think about account creation, recovery, and possibly account deletion.
