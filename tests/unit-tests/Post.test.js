@@ -47,13 +47,13 @@ describe("Post Model Test", function () {
 
   it("Should find the username for the first post with 'test' tag", function (done) {
     Post
-        .findOne({ tags: "test" })
-        .populate("createdBy")
-        .exec(function (err, found) {
-          if (err) { return done(err); }
-          found.createdBy.username.should.equal("asdobson");
-          done();
-        });
+      .findOne({ tags: "test" })
+      .populate("createdBy")
+      .exec(function (err, found) {
+        if (err) { return done(err); }
+        found.createdBy.username.should.equal("asdobson");
+        done();
+      });
   });
 
   after(function (done) {

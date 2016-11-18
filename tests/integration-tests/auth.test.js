@@ -32,38 +32,38 @@ describe("User Test", function () {
 
   function createUser (key, done) {
     request
-            .post("/signup")
-            .type("form")
-            .send(users[key])
-            .expect(302)
-            .end(function (error, response) {
-              if (error) { return done(error); }
-              done();
-            });
+      .post("/signup")
+      .type("form")
+      .send(users[key])
+      .expect(302)
+      .end(function (error, response) {
+        if (error) { return done(error); }
+        done();
+      });
   }
 
   function loginUser (key, done) {
     request
-            .post("/login")
-            .type("form")
-            .send(users[key])
-            .expect(302)
-            .expect("Location", /\/home/)
-            .end(function (error, response) {
-              if (error) { return done(error); }
-              done();
-            });
+      .post("/login")
+      .type("form")
+      .send(users[key])
+      .expect(302)
+      .expect("Location", /\/home/)
+      .end(function (error, response) {
+        if (error) { return done(error); }
+        done();
+      });
   }
 
   function logoutUser (done) {
     request
-            .get("/logout")
-            .expect(302)
-            .expect("Location", /\/login/)
-            .end(function (error, response) {
-              if (error) { return done(error); }
-              done();
-            });
+      .get("/logout")
+      .expect(302)
+      .expect("Location", /\/login/)
+      .end(function (error, response) {
+        if (error) { return done(error); }
+        done();
+      });
   }
 
   it("should create a single user", function (done) {
@@ -76,26 +76,26 @@ describe("User Test", function () {
 
   it("should fail to create if username is missing", function (done) {
     request
-            .post("/signup")
-            .type("form")
-            .send({ username: null, password: "somepassword" })
-            .expect(400)
-            .end(function (error, response) {
-              if (error) { return done(error); }
-              done();
-            });
+      .post("/signup")
+      .type("form")
+      .send({ username: null, password: "somepassword" })
+      .expect(400)
+      .end(function (error, response) {
+        if (error) { return done(error); }
+        done();
+      });
   });
 
   it("should fail to create if password is missing", function (done) {
     request
-            .post("/signup")
-            .type("form")
-            .send({ username: "someuser", password: null })
-            .expect(400)
-            .end(function (error, response) {
-              if (error) { return done(error); }
-              done();
-            });
+      .post("/signup")
+      .type("form")
+      .send({ username: "someuser", password: null })
+      .expect(400)
+      .end(function (error, response) {
+        if (error) { return done(error); }
+        done();
+      });
   });
 
   it("should create a third user", function (done) {
@@ -104,14 +104,14 @@ describe("User Test", function () {
 
   it("should not create two of the same user", function (done) {
     request
-            .post("/signup")
-            .type("form")
-            .send(users[0])
-            .expect(409)
-            .end(function (error, response) {
-              if (error) { return done(error); }
-              done();
-            });
+      .post("/signup")
+      .type("form")
+      .send(users[0])
+      .expect(409)
+      .end(function (error, response) {
+        if (error) { return done(error); }
+        done();
+      });
   });
 
   it("can login the first user and redirect to /users/me", function (done) {
@@ -124,14 +124,14 @@ describe("User Test", function () {
 
   it("can not login with incorrect credentials", function (done) {
     request
-            .post("/login")
-            .type("form")
-            .send({ username: users[0].username, password: "incorrect" })
-            .expect(422)
-            .end(function (error, response) {
-              if (error) { return done(error); }
-              done();
-            });
+      .post("/login")
+      .type("form")
+      .send({ username: users[0].username, password: "incorrect" })
+      .expect(422)
+      .end(function (error, response) {
+        if (error) { return done(error); }
+        done();
+      });
   });
 
   after(function (done) {
