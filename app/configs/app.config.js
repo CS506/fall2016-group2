@@ -1,3 +1,3 @@
 module.exports = exports = {
-  name : 'login-tutorial'
+  name: "login-tutorial"
 };
