@@ -37,7 +37,7 @@
   * I can specify which buckets I prefer to see on my front page. __Low Priority__
   * The most recent post is displayed first in a bucket. __Testable__ __Low Priority__
     * As the Message Reader, I want the most recent messages first in a bucket because sometimes the current messages are the only fun ones.
-  * Buckets can be refreshed. This could be a refresh button. __Testable__ __Low Priority__
+  * Buckets re-populate with posts every 5 seconds and a water drop animation happens at the same time. __Testable__ __Low Priority__
 
 * Log in and account creation
   * I would like to use my facebook or google account to login. __Testable__ __Low Priority__
