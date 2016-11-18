@@ -6,8 +6,8 @@
   "scripts": {
     "test": "cross-env NODE_ENV=test mocha --recursive tests/**/*.test.js",
     "start": "node ./app/index.js",
-    "coverage": "cross-env NODE_ENV=test istanbul cover node_modules/mocha/bin/_mocha -- --recursive tests/**/*.test.js",
-    "codeclimate-test-reporter": "codeclimate-test-reporter < ./coverage/lcov.info"
+    "coveralls": "cross-env NODE_ENV=test istanbul cover node_modules/mocha/bin/_mocha -- --recursive tests/**/*.test.js && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js ",
+    "codeclimate-test-reporter": "codeclimate-test-reporter < ./coverage/lcov.info",
   },
   "dependencies": {
     "@onehilltech/blueprint": "^1.2.0",
