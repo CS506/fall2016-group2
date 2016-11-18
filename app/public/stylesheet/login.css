@@ -2,6 +2,8 @@ body
 {
 	width:100%;
 	height:100%;
+	background-image: url("../images/bg.jpg");
+	color:#0086b3;
 }
 
 div.container
@@ -16,8 +18,7 @@ div.logo
 }
 
 img
-{
-	align="middle"; 
+{ 
 	height:125px; 
 	width:125px;
 }
@@ -26,7 +27,7 @@ p#logo-name
 {
 	font-size:250%; 
 	font-family:Monospace; 
-	color:#00ace6;
+	/*color:#00ace6;*/
 }
 
 form
@@ -40,6 +41,7 @@ form
 button.btn btn-default
 {
 	transform:translate(160%,0%);
+	color:#0086b3, !important;
 }
 
 div#submit

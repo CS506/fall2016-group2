@@ -8,18 +8,28 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
         integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
-
+  <link rel="stylesheet" href="stylesheet/dashboard.css">
 </head>
 
 <body>
-
+<table width="100%">
+<tr class="header">
+    <td class="logo">
+		<img src="images/logo.png" alt="Image not loaded"/><br/>Buckets
+	</td>
+    <td width="65%" align="center"></td>
+    <td width="15%" >{{user.username}}<a href="/logout">Logout</a></td>
+</tr>
+</table>
 <div class="container">
+	<div class="newicon" style="float:right" width="25%">
+		<img src="images/new_post.png" alt="Image not loaded"/>
+		<a href class="show_form"><img src="images/new_bucket.png" alt="Image not loaded"/></a>
+	</div>
     <div class="controls">
-        <p>Hello, my username is {{user.username}}</p>
-        <p><a href="/logout">Click to logout</a></p>
         <p><a href="/createPost">New Post</a></p>
     </div>
-
+	<div id="form_wrapper">
     <form method="post" action="/addBucket">
         <div class="form-group">
             <label for="tag">New Bucket</label>
@@ -27,23 +37,47 @@
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
     </form>
-
-    <h1>User Posts</h1>
-    <div class="container">
-    {{#each msg}}
-        <li>{{this.postText}} #{{this.postTags}} @ {{this.postTime}}</li>
-    {{/each}}
-    </div>
-
-    <h1>Buckets</h1>
-    <div class="container">
-        {{#each bucketList}}
-            <h3>{{@key}}</h3>
-            {{#each this}}
-            <li>{{this.createdBy}} posted: {{this.postText}} @ {{this.postTime}}</li>
+	</div>
+	
+ </div>
+<div class="container">
+		{{#each bucketList}}
+			<div id="buckets">
+			<div class="wrap">
+		<div class="drop-outer">
+			<svg class="drop" viewBox="0 0 40 40" version="1.1"
+				xmlns="http://www.w3.org/2000/svg">
+				<circle cx="20" cy="20" r="20"/>
+			</svg>
+		</div>
+		<div class="ripple ripple-1">
+			<svg class="ripple-svg" viewBox="0 0 60 60" version="1.1"
+				xmlns="http://www.w3.org/2000/svg">
+				<circle cx="30" cy="30" r="20"/>
+			</svg>
+		</div>
+		<div class="ripple ripple-2">
+			<svg class="ripple-svg" viewBox="0 0 60 60" version="1.1"
+				xmlns="http://www.w3.org/2000/svg">
+				<circle cx="30" cy="30" r="20"/>
+			</svg>
+		</div>
+		<div class="ripple ripple-3">
+			<svg class="ripple-svg" viewBox="0 0 60 60" version="1.1"
+				xmlns="http://www.w3.org/2000/svg">
+				<circle cx="30" cy="30" r="15"/>
+			</svg>
+		</div>
+	</div>
+			<center><h4><b>{{@key}}</b></h4></center>
+			<center>
+			{{#each this}}
+				{{this.createdBy}} posted: {{this.postText}} @ {{this.postTime}}
+				<br/>----------------------------------------
             {{/each}}
+			</center>
+			</div>
         {{/each}}
-    </div>
 </div>
 
 
