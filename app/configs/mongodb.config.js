@@ -1,11 +1,11 @@
-'use strict';
+"use strict";
 
 module.exports = {
   connections: {
     $default: {
-      connstr: 'mongodb://localhost/Buckets',
+      connstr: "mongodb://localhost/Buckets",
 
-      options : {
+      options: {
         db: {
           native_parser: true,
           read_preference: "primary",

@@ -1,21 +1,22 @@
 function isLoggedIn (req, res, next) {
   // if user is authenticated in the session, carry on
-  if (req.isAuthenticated ())
-    return next ();
+  if (req.isAuthenticated()) {
+    return next();
+  }
 
-  // if they aren't redirect them to the home page
-  res.redirect ('/login');
+  // if they aren"t redirect them to the home page
+  res.redirect("/login");
 }
 
 module.exports = {
 
-    use: isLoggedIn,
-    '/home': {
-        get: {action: 'UserController@showMe'}
-    },
+  use: isLoggedIn,
+  "/home": {
+    get: {action: "UserController@showMe"}
+  },
 
-    '/addBucket' : {
-        post: {action: 'UserController@addBucket'}
-    }
+  "/addBucket": {
+    post: {action: "UserController@addBucket"}
+  }
 
 };

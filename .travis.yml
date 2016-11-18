@@ -2,8 +2,8 @@ sudo: required
 dist: trusty
 language: node_js
 node_js:
-  - '6'
-  - '7'
+  - "6"
+  - "7"
 env:
   - CXX=g++-4.8
 addons:
@@ -13,16 +13,21 @@ addons:
     packages:
       - g++-4.8
     code_climate:
-      repo_token: <>
+      repo_token: 3cdc62be3e828dc8b440d134c0cd99ef4bfd13a15ecfdadb4883c3551b1057b0
 services:
   - mongodb
 
 script:
-  - npm test --coverage
+  - npm run coveralls
+after_success:
+  - codeclimate-test-reporter < coverage/lcov.info
 
-after_script:
-  - npm run coverage
-  # - npm run codeclimate-test-reporter
+#script:
+#  - npm test --coverage
+#
+#after_script:
+#  - npm run coverage
+#  - npm run codeclimate-test-reporter
 
   #Got help from Zach in Group 1
   #and their .travis.yml files for this line
