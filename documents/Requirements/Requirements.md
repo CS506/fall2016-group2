@@ -11,7 +11,7 @@
   * No one can use the system if they are not logged in. __Testable__ __High Priority__
 
 * Post Creation
-  * My posts can't be more than 160 characters. __Testable__ __Low Priority__
+  * My posts can"t be more than 160 characters. __Testable__ __Low Priority__
     * As the Message Reader, I hate reading alot of text because it is boring.
   * I can attach images no greater than 1024x512 to my posts. __Testable__ __Medium Priority__
     * As the Message Creator, I would like use images in message because they have more information and I want to express my creative side.
@@ -28,8 +28,8 @@
     * As the Message Creator, I do not want everything I say to be connected back to me because sometimes I may say things that create trouble.
   * Posts with a stop time should become hidden once the stop time has elapsed. Otherwise it can be seen forever. __Testable__ __Medium Priority__
   * Posts can be shared anonymously. __Low Priority__
-    * As the Message Creator, I want to make anonymous messages because sometimes I don't want words to be connected back to me.
-    * As the Message Reader, I want anonymous posts because sometimes I don't want to know who wrote those words.
+    * As the Message Creator, I want to make anonymous messages because sometimes I don"t want words to be connected back to me.
+    * As the Message Reader, I want anonymous posts because sometimes I don"t want to know who wrote those words.
 
 * Buckets
   * Organize posts in collections of related material called buckets. __High Priority__
@@ -41,6 +41,6 @@
 
 * Log in and account creation
   * I would like to use my facebook or google account to login. __Testable__ __Low Priority__
-    * As the User, I would like to use my facebook or google account to login because I won't need to remember any more passwords.
+    * As the User, I would like to use my facebook or google account to login because I won"t need to remember any more passwords.
     * As the system, I would like users to login with another service because managing user accounts is painful.
     * As the coder, I would like users to login with another service because this way I do not have to worry about account creation, validation, security, account recovery, and possibly account deletion.
