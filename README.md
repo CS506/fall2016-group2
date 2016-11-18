@@ -38,7 +38,7 @@ You"re on your own after that (or just use Linux).
 ### Installing the Project ###
 Change directory to your projects folder, then: 
 ```
-https://github.com/CS506/fall2016-group2.git
+git clone https://github.com/CS506/fall2016-group2.git
 cd fall2016-group2
 npm install --dev
 ```
