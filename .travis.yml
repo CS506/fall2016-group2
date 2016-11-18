@@ -18,11 +18,16 @@ services:
   - mongodb
 
 script:
-  - npm test --coverage
+  - npm run coveralls
+after_success:
+  - codeclimate-test-reporter < coverage/lcov.info
 
-after_script:
-  - npm run coverage
-  - npm run codeclimate-test-reporter
+#script:
+#  - npm test --coverage
+#
+#after_script:
+#  - npm run coverage
+#  - npm run codeclimate-test-reporter
 
   #Got help from Zach in Group 1
   #and their .travis.yml files for this line
