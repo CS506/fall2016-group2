@@ -17,18 +17,6 @@ sudo apt install git curl build-essential
 curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
 sudo apt install -y nodejs
 ```
-##### RHEL/Fedora/CentOS #####
-```
-yum install git curl gcc-c++ make
-curl --silent --location https://rpm.nodesource.com/setup_6.x | bash -
-yum install nodejs
-```
-##### Mac #####
-For Node.js:
-```
-curl "https://nodejs.org/dist/latest/node-${VERSION:-$(wget -qO- https://nodejs.org/dist/latest/ | sed -nE "s|.*>node-(.*)\.pkg</a>.*|\1|p")}.pkg" > "$HOME/Downloads/node-latest.pkg" && sudo installer -store -pkg "$HOME/Downloads/node-latest.pkg" -target "/"
-```
-Install Git from [their site](https://git-scm.com/download/mac).
 
 ##### Windows #####
 Download and install Node.js v6 directly from [their site](https://nodejs.org/en/#download), and Git directly from [their site](https://git-scm.com/download/win).
