@@ -32,7 +32,6 @@ Install Git from [their site](https://git-scm.com/download/mac).
 
 ##### Windows #####
 Download and install Node.js v6 directly from [their site](https://nodejs.org/en/#download), and Git directly from [their site](https://git-scm.com/download/win).
-You"re on your own after that (or just use Linux).
 
 
 ### Installing the Project ###
