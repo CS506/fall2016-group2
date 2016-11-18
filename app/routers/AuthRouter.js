@@ -1,33 +1,29 @@
-var passport = require ('passport')
-  ;
-
 function isLoggedIn (req, res, next) {
     // if user is authenticated in the session, carry on
-    if (req.isAuthenticated ())
-        return next ();
+  if (req.isAuthenticated()) { return next(); }
 
-    // if they aren't redirect them to the home page  
-    res.redirect ('/login');
-} 
+    // if they aren"t redirect them to the home page
+  res.redirect("/login");
+}
 
 module.exports = {
-    '/login': {
-        
+  "/login": {
+
         // retrieve the login view
-        get: {view: 'login.handlebars'},
+    get: {view: "login.handlebars"},
 
         // handle the login process
-        post: { action: 'AuthController@login' }
-    },
+    post: { action: "AuthController@login" }
+  },
 
-    '/logout': {
+  "/logout": {
 
-        use: isLoggedIn,
-        get: {action: 'AuthController@logout'}
-    },
+    use: isLoggedIn,
+    get: {action: "AuthController@logout"}
+  },
 
-    '/signup': {
-        get: { view: 'createAccount.handlebars' },
-        post: { action: 'AuthController@createAccount'}
-    }
+  "/signup": {
+    get: { view: "createAccount.handlebars" },
+    post: { action: "AuthController@createAccount" }
+  }
 };
