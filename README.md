@@ -1,7 +1,7 @@
 # Buckets #
 [![Code Climate](https://codeclimate.com/github/CS506/fall2016-group2/badges/gpa.svg)](https://codeclimate.com/github/CS506/fall2016-group2)
 [![Coverage Status](https://coveralls.io/repos/github/asdobson/CSCI-50600-Project/badge.svg?branch=master)](https://coveralls.io/github/asdobson/CSCI-50600-Project?branch=master)
-
+[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com)
 
 ## Development Environment Setup ##
 You need to install git, Node.js, and (if not included with Node.js) NPM.
