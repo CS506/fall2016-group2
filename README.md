@@ -28,7 +28,7 @@ For Node.js:
 ```
 curl "https://nodejs.org/dist/latest/node-${VERSION:-$(wget -qO- https://nodejs.org/dist/latest/ | sed -nE "s|.*>node-(.*)\.pkg</a>.*|\1|p")}.pkg" > "$HOME/Downloads/node-latest.pkg" && sudo installer -store -pkg "$HOME/Downloads/node-latest.pkg" -target "/"
 ```
-Install Git from [their site](https://git-scm.com/download/mac). You"re on your own after that.
+Install Git from [their site](https://git-scm.com/download/mac).
 
 ##### Windows #####
 Download and install Node.js v6 directly from [their site](https://nodejs.org/en/#download), and Git directly from [their site](https://git-scm.com/download/win).
