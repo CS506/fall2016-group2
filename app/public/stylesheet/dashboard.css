@@ -1,6 +1,6 @@
 ﻿body
 {
-	background-image: url("../images/bg.jpg");
+	background:url('../images/bg.jpg');
 }
 img
 {
@@ -16,7 +16,7 @@ img
 {
 	height:20%;
 	color:#0086b3;
-	background: linear-gradient(90deg, #e6f3ff 0%, transparent 50%, #e6f3ff 100%) 0px 0px;
+	background: linear-gradient(90deg, #b3daff 0%, transparent 50%, #b3daff 100%) 0px 0px;
 	z-index: 5;
 }
 .controls
@@ -37,8 +37,8 @@ img
 }
 
 div#buckets {
-	width:25%;
-    height:40%;
+	width:285px;
+    height:250px;
 	float:left; 
     padding:0% 1% 1% 1%;
     margin:4%;
@@ -48,7 +48,7 @@ div#buckets {
     vertical-align:bottom;
     display:inline-block;
 	overflow:hidden;
-	background: linear-gradient(90deg, #e6f3ff 0%, transparent 50%, #e6f3ff 100%) 0px 0px;
+	background: linear-gradient(90deg, #b3daff 0%, transparent 50%, #b3daff 100%) 0px 0px;
 	z-index: 5;
 	color:#0086b3;
 }

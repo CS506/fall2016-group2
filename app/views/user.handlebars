@@ -12,6 +12,7 @@
 </head>
 
 <body>
+<div style="background-color:white; max-width:85%; margin: 0 auto;">
 <table width="100%">
 <tr class="header">
     <td class="logo">
@@ -21,8 +22,8 @@
     <td width="15%" >{{user.username}}<a href="/logout">Logout</a></td>
 </tr>
 </table>
-<div class="container">
-	<div class="newicon" style="float:right" width="25%">
+<div class="container" style="width:100%; margin:0%">
+	<div class="newicon" style="float:right; margin:1%">
 		<img src="images/new_post.png" alt="Image not loaded"/>
 		<a href class="show_form"><img src="images/new_bucket.png" alt="Image not loaded"/></a>
 	</div>
@@ -74,7 +75,7 @@
 				{{#each this}}
 					{{this.username}} posted: {{this.postText}} @ {{this.postTime}}<br/>----------------------------------------<br/>
 				{{/each}}
-			</center>
+			
 		</div>
 	{{/each}}
 </div>
@@ -85,6 +86,8 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
         integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
         crossorigin="anonymous"></script>
+</div>
+</center>
 </body>
 
 </html>
