@@ -13,10 +13,10 @@ blueprint.controller(BucketController);
 
 BucketController.prototype.getBucket = function () {
   return function (req, res) {
-     var tag = req.params.tag;
-     var maxPosts = 100;
+    var tag = req.params.tag;
+    var maxPosts = 100;
         // Get posts for requested tag
-     Post.getPostsByTag(tag, maxPosts, function (err, posts) {
+    Post.getPostsByTag(tag, maxPosts, function (err, posts) {
       if (err) {
         return res.status(500).render("user.handlebars", {
           error: "The server could not retrieve the bucket."
@@ -26,7 +26,7 @@ BucketController.prototype.getBucket = function () {
         bucket: tag,
         posts: posts
       });
-     });
+    });
   };
 };
 
