@@ -25,6 +25,7 @@
     "browser": false
   },
   "plugins": [
+    "json",
     "markdown"
   ]
 }
