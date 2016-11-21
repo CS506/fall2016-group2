@@ -23,9 +23,5 @@
     "es6": true,
     "node": true,
     "browser": false
-  },
-  "plugins": [
-    "json",
-    "markdown"
-  ]
+  }
 }
