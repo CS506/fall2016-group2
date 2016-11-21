@@ -25,6 +25,5 @@
     "browser": false
   },
   "plugins": [
-    "markdown"
   ]
 }
