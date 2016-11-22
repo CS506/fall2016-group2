@@ -4,7 +4,7 @@ Date|Average Grade Level|Flesch-Kincaid Reading Ease|
 9-26-2016|6.6|70.1
 11-8-2016|8.1|71.5
 11-17-2016|8.2|71.3
-11-21-2016|7.8|71.7
+11-21-2016|7.7|72.7
 
 #Prioritization
 Date|Percentage|
@@ -13,6 +13,7 @@ Date|Percentage|
 11-8-2016|89%
 11-17-2016|100%
 11-19-2016|66%
+11-21-2016|92%
 
 #Testability
 Date|Percentage
@@ -22,3 +23,4 @@ Date|Percentage
 9-26-2016|40%
 11-8-2016|83%
 11-17-2016|85%
+11-21-2016|84%
