@@ -9,7 +9,6 @@ module.exports = initPassport;
 
 function initPassport (app) {
   var User = app.models.User;
-  var FacebookUser = app.models.FacebookUser;
   var opts = {session: true};
 
   passport.use(new LocalStrategy(opts, authorize));
@@ -20,12 +19,12 @@ function initPassport (app) {
       callbackURL: config.facebook.callbackURL
   },
       function(accessToken, refreshToken, profile, done) {
-          FacebookUser.findOne( {serviceId: profile.id}, function (error, user) {
+          User.findOne( {serviceId: profile.id}, function (error, user) {
               if (error) {
                   return done(err);
               }
               if(!user) {
-                  user = new FacebookUser({
+                  user = new User({
                       username: profile.id,
                       serviceId: profile.id
                   });

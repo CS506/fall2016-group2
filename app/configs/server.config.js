@@ -8,10 +8,6 @@ blueprint.messaging.on("app.init", function (app) {
   User = app.models.User;
 });
 
-blueprint.messaging.on("app.init", function (app) {
-    FacebookUser = app.models.FacebookUser;
-});
-
 module.exports = {
   protocols: {
     http: {
@@ -36,7 +32,7 @@ module.exports = {
         },
 
         deserializer: function (id, done) {
-          FacebookUser.findById(id, done);
+          User.findById(id, done);
         }
       }
     },

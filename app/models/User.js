@@ -11,7 +11,11 @@ var schema = new mongodb.Schema({
     trim: true,
     validate: validator.isAlphanumeric
   },
-  password: {type: String, required: true},
+
+    // removed the required parameter for now
+  password: {type: String},
+  serviceId: {type: String},
+
   tags: {
     type: [String],
     lowercase: true
