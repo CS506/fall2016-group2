@@ -19,28 +19,53 @@
 		<img src="images/logo.png" alt="Image not loaded"/><br/>Buckets
 	</td>
     <td width="65%" align="center"></td>
-    <td width="15%" >{{user.username}}<a href="/logout">Logout</a></td>
+    <td width="15%" ><span>{{user.username}}</span><a href="/logout">Logout</a></td>
 </tr>
 </table>
 <div class="container" style="width:100%; margin:0%">
 	<div class="newicon" style="float:right; margin:1%">
-		<img src="images/new_post.png" alt="Image not loaded"/>
-		<a href class="show_form"><img src="images/new_bucket.png" alt="Image not loaded"/></a>
+		<span id="newPost"><img src="images/new_post.png" alt="Image not loaded"/></span>
+		<span id="newBucket"><img src="images/new_bucket.png" alt="Image not loaded"/></span>
 	</div>
-    <div class="controls">
-        <p><a href="/createPost">New Post</a></p>
-    </div>
-	<div id="form_wrapper">
+	<div id="myModalNew" class="modal">
+		<form method="post" action="/createPost">
+		<div class="modal-content-text" id="modal-content-text">
+			  <span id ="close" class="postclose">X</span>
+			  <div class="modal_content">
+					<textarea rows="5" style="width:100%; padding:10px 10px;" maxlength="160" onkeyup="countChar(this)" placeholder="enter text here"></textarea></br>
+					<span>Characters left:</span><span id="charNum">160</span></br></br>
+					<input type="file" name="fileToUpload" id="fileToUpload"></br></br>
+					<input type="checkbox">Stay Incognito</input></br>
+					<input type="checkbox" id="deadline" value="deadline">Deadline</input>
+					<div class="dateTimePicker" id="dateTimePicker">
+						<table>
+							<tr>
+								<td><span>Start Time : </span></td>
+								<td><input type="datetime-local" id="" name="startDateTime"></input></td>
+							</tr>
+							<tr>
+								<td><span>End Time : </span></td>
+								<td><input type="datetime-local" id="" name="endDateTime"></input></td>
+							</tr>
+						</table>
+					</div>
+			  </div>
+			  <div id="tags" name="tags"></div>
+			  <button type="submit" class="btn btn-default">Submit</button>
+		</div>
+		</form>
+	</div>
+	<div id="form_wrapper" class="modal">
     <form method="post" action="/addBucket">
-        <div class="form-group">
-            <label for="tag">New Bucket</label>
+        <div class="modal-content-text">
+			<span id ="close" class="bucketclose">X</span>
             <input type="text" class="form-control" id="bucketTag" name="bucketTag" placeholder="Enter tag for bucket">
+			<button id="submit" name="submit" class="btn btn-default">Submit</button>
         </div>
-        <button type="submit" class="btn btn-default">Submit</button>
+        
     </form>
 	</div>
-	
- </div>
+</div>
 <div class="container">
 	{{#each bucketList}}
 		<div id="buckets">
@@ -73,7 +98,8 @@
 			<center><h4><b>{{@key}}</b></h4></center>
 			<center>
 				{{#each this}}
-					{{this.username}} posted: {{this.postText}} @ {{this.postTime}}<br/>----------------------------------------<br/>
+					{{this.username}} posted: {{this.postText}} @ {{this.postTime}}
+					<br/>----------------------------------------<br/>
 				{{/each}}
 			
 		</div>
@@ -86,8 +112,10 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
         integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
         crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="javascripts/script.js"></script>
 </div>
 </center>
 </body>
-
 </html>
