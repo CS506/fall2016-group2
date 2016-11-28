@@ -3,7 +3,10 @@
   * Task
     * User Story
 
-##Project Reqirements New
+##Project Reqirements
+
+* Application runs on Amazon Webservice Servers. __High Priority__
+
 * Views
   * There is a front page that all users can see. This page has buckets and posts that the user likes to view. __Testable__ __Complete__
   * There is a sign up page for users to create an account. __Testable__ __Complete__
