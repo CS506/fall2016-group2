@@ -11,7 +11,7 @@
   * There is a front page that all users can see. This page has buckets and posts that the user likes to view. __Testable__ __Complete__
   * There is a sign up page for users to create an account. __Testable__ __Complete__
   * There is a login page for users to be able to login. __Testable__ __Complete__
-  * There is a pop up for a user to create a new posts. __Testable__ __High Priority__
+  * There is a pop up for a user to create a new posts. __Testable__ __Complete__
   * There is a profile page for each user. __Testable__ __Low Priority__
   * The user profile page shows their username and an email. __Testable__ __Low Priority__
   * The user profile page shows a single link to facebook profile if their facebook is connected and a single link to google+ profile if their google account is connected. __Testable__ __Low Priority__
@@ -21,12 +21,12 @@
   * If the user is not logged in then no one can use the application. __Testable__ __Complete__
 
 * Post Creation
-  * A post cannot be more than 160 characters. __Testable__ __High Priority__
+  * A post cannot be more than 160 characters. __Testable__ __Complete__
     * As the Message Reader, I hate reading alot of text because it is boring.
   * I can put images in posts. Image size cannot be bigger than 1024x512. __Testable__ __Medium Priority__
     * As the Message Creator, I would like use images in message because they have more information and I want to express my creative side.
     * As the Message Reader, I would like to see images in messages because text only posts are boring.
-  * Posts can have hashtags in them. Atleast 0 hashtags. __Testable__ __High Priority__
+  * Posts can have hashtags in them. Atleast 0 hashtags. __Testable__ __Complete__
     * As the Message Creator, I want posts to have hashtags so my messages can be easily found.
     * As thed Message Reader, I want to search for messages by hashtags to help me find messages that I like.
 
