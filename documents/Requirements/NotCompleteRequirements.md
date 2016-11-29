@@ -22,7 +22,7 @@ There is a button on each bucket to refreshes the bucket with new posts. __Low P
 
 When a bucket is clicked, a single page appears that shows posts in the bucket. __Medium Priority__
 
-When mouse hovers over a bucket, the bucket is scaled up in size. __Medium Priority__
+When mouse hovers over a bucket, the bucket is scaled up in size. __Low Priority__
 
 I would like to use my facebook account to login. __High Priority__
 
