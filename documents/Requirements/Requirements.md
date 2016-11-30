@@ -45,11 +45,11 @@
   * Organize posts in collections of related material called buckets. __Complete__ 
   * The front page has atleast 1 bucket that all users can see. This is the "Lastest Posts" bucket. __Testable__ __Complete__
   * I can specify which buckets I prefer to see on my front page. __Low Priority__
-  * The most recent post is displayed first in a bucket. __Testable__ __Low Priority__
+  * The most recent post is displayed first in a bucket. __Testable__ __Complete__
     * As the Message Reader, I want the most recent messages first in a bucket because sometimes the current messages are the only fun ones.
   * There is a button on each bucket to refreshes the bucket with new posts. __Testable__ __Low Priority__
   * When a bucket is clicked, a single pop up appears that shows recent posts in the bucket. __Testable__ __Medium Priority__
-  * When mouse hovers over a bucket, the bucket is scaled up in size. __Medium Priority__
+  * When mouse hovers over a bucket, the bucket is scaled up in size. __Complete__
 
 * Log in and account creation
   * I would like to use my facebook or google account to login. __Testable__ __High Priority__
