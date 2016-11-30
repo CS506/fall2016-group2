@@ -2,6 +2,7 @@ var blueprint = require("@onehilltech/blueprint")
   ;
 
 var User;
+var FacebookUser;
 
 blueprint.messaging.on("app.init", function (app) {
   User = app.models.User;
