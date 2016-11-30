@@ -8,10 +8,6 @@ Posts with a stop time should become hidden once the stop time has passed. Other
 
 Posts can be shared anonymously. __High Priority__
 
-I would like to use my facebook account to login. __High Priority__
-
-I would like to use my facebook account to signup. __High Priority__
-
 There is a profile page for each user. __Medium Priority__
 
 The user profile page shows their username and an email. __Medium Priority__

@@ -52,11 +52,11 @@
   * When mouse hovers over a bucket, the bucket is scaled up in size. __Complete__
 
 * Log in and account creation
-  * I would like to use my facebook or google account to login. __Testable__ __High Priority__
+  * I would like to use my facebook account to login. __Testable__ __Complete__
     * As the User, I would like to use my facebook or google account to login because I won't need to remember any more passwords.
     * As the system, I would like users to login with another service because it sucks to manage user accounts.
     * As the coder, I would like users to login with another service because this way I do not need to think about account validation and security.
-  * I would like to use my facebook or google account to signup. __Testable__ __High Priority__
+  * I would like to use my facebook account to signup. __Testable__ __Complete__
     * As the User, I would like to use my facebook or google account to signup because filling out forms is annoying.
     * As The system, I would like users to sign up with another service because organizing account information takes alot of storage and processing time.
     * As the code, I would like users to signup with another service because this way I do not need to think about account creation, recovery, and possibly account deletion.
