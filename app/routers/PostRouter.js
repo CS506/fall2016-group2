@@ -15,6 +15,8 @@ module.exports = {
     use: isLoggedIn,
     get: {view: "newPost.handlebars"},
     post: {action: "PostController@createPost"}
+  },
+  "/bucket/:tag": {
+    get: { action: "BucketController@getBucket" }
   }
-
 };
