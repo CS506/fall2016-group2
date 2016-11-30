@@ -1,5 +1,6 @@
 "use strict";
 
+// The oauth.js file will need to be created and configured. See ouathExample.js for details
 var passport = require("passport")
     , config = require("../../configs/oauth.js")
     , LocalStrategy = require("passport-local").Strategy
