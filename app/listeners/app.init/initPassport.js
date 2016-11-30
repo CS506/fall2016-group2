@@ -23,9 +23,11 @@ function initPassport (app) {
               if (error) {
                   return done(err);
               }
+
               if(!user) {
                   user = new User({
-                      username: profile.id,
+                      //Remove whitespace from the display name
+                      username: profile.displayName.replace(/\s/g, ''),
                       serviceId: profile.id
                   });
                   user.save(function(err) {
