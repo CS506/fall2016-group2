@@ -3,7 +3,7 @@
   * Task
     * User Story
 
-##Project Reqirements
+##Project Requirements
 
 * Application runs on Amazon Webservice Servers. __High Priority__
 
