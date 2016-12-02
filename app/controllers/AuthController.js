@@ -26,7 +26,7 @@ AuthController.prototype.login = function () {
         res.redirect("/home");
       });
     })(req, res, next);
-  }
+  };
 };
 
 AuthController.prototype.logout = function () {

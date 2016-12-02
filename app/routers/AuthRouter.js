@@ -28,12 +28,12 @@ module.exports = {
   },
 
   "/auth": {
-      "/facebook" : {
-          get: { action: "FacebookAuthController@facebookAuth" },
+    "/facebook": {
+      get: { action: "FacebookAuthController@facebookAuth" },
 
-          "/callback" : {
-              get: { action: "FacebookAuthController@facebookCallback"}
-          }
+      "/callback": {
+        get: { action: "FacebookAuthController@facebookCallback" }
       }
+    }
   }
 };
