@@ -25,5 +25,15 @@ module.exports = {
   "/signup": {
     get: { view: "createAccount.handlebars" },
     post: { action: "AuthController@createAccount" }
+  },
+
+  "/auth": {
+      "/facebook" : {
+          get: { action: "FacebookAuthController@facebookAuth" },
+
+          "/callback" : {
+              get: { action: "FacebookAuthController@facebookCallback"}
+          }
+      }
   }
 };

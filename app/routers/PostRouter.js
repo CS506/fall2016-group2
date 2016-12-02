@@ -1,4 +1,3 @@
-// TODO: find some way to have this code in one location, instead of in each router
 function isLoggedIn (req, res, next) {
     // if user is authenticated in the session, carry on
   if (req.isAuthenticated()) {
