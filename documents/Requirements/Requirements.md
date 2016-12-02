@@ -3,12 +3,15 @@
   * Task
     * User Story
 
-##Project Reqirements New
+##Project Requirements
+
+* Application runs on Amazon Webservice Servers. __High Priority__
+
 * Views
   * There is a front page that all users can see. This page has buckets and posts that the user likes to view. __Testable__ __Complete__
   * There is a sign up page for users to create an account. __Testable__ __Complete__
   * There is a login page for users to be able to login. __Testable__ __Complete__
-  * There is a pop up for a user to create a new posts. __Testable__ __High Priority__
+  * There is a pop up for a user to create a new posts. __Testable__ __Complete__
   * There is a profile page for each user. __Testable__ __Low Priority__
   * The user profile page shows their username and an email. __Testable__ __Low Priority__
   * The user profile page shows a single link to facebook profile if their facebook is connected and a single link to google+ profile if their google account is connected. __Testable__ __Low Priority__

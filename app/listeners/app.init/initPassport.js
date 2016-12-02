@@ -1,7 +1,10 @@
 "use strict";
 
+// The oauth.js file will need to be created and configured. See ouathExample.js for details
 var passport = require("passport");
+var config = require("../../configs/oauth.js");
 var LocalStrategy = require("passport-local").Strategy;
+var FacebookStrategy = require("passport-facebook").Strategy;
 
 module.exports = initPassport;
 
@@ -10,6 +13,34 @@ function initPassport (app) {
   var opts = {session: true};
 
   passport.use(new LocalStrategy(opts, authorize));
+
+  passport.use(new FacebookStrategy({
+    clientID: config.facebook.clientID,
+    clientSecret: config.facebook.clientSecret,
+    callbackURL: config.facebook.callbackURL
+  },
+      function (accessToken, refreshToken, profile, done) {
+        User.findOne({serviceId: profile.id}, function (error, user) {
+          if (error) {
+            return done(error);
+          }
+
+          if (!user) {
+            user = new User({
+                      // Remove whitespace from the display name
+              username: profile.displayName.replace(/\s/g, ""),
+              serviceId: profile.id
+            });
+            user.save(function (err) {
+              if (err) console.log(err);
+              return done(err, user);
+            });
+          } else {
+            return done(null, user);
+          }
+        });
+      }
+  ));
 
   function authorize (username, password, done) {
     User.findOne({ username: username }, function (err, user) {
