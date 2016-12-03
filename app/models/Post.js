@@ -7,25 +7,18 @@ var schema = new mongodb.Schema({
     required: true,
     trim: true
   },
-
-  postTime: {
-    type: Date,
-    required: true,
-    trim: true
-  },
-
   tags: {
     type: [String],
     lowercase: true,
     index: true
   },
-
   startTime: {
-    type: Date
+    type: Date,
+    required: true
   },
-
   stopTime: {
-    type: Date
+    type: Date,
+    required: true
   },
   createdBy: {
     type: mongodb.Schema.Types.ObjectId,
@@ -33,7 +26,9 @@ var schema = new mongodb.Schema({
     required: true,
     ref: "users"
   }
-
+}, {
+  // Adds 'createdAt' and 'updatedAt' fields
+  timestamps: true
 });
 
 schema.pre("save", function (next) {
@@ -67,13 +62,19 @@ schema.methods.setTags = function (next) {
 // Find posts with given tag. Limit results to "max" number of freshest posts.
 schema.statics.getPostsByTag = function (tag, max, next) {
     // TODO: Populate creator info
-    // Using aggregate to take advantage of piping optimizations
+  // Using aggregate to take advantage of piping optimizations
+  var currentTime = new Date();
+
   this.aggregate(
-        // TODO: add { stopTime: { $lt: currentTime } }
-        // and { startTime { $gt: currentTime } } to $match
-        { $match: { tags: tag } },
-        { $sort: { startTime: -1 } },
-        { $limit: max },
+    {
+      $match: {
+        tags: tag,
+        stopTime: { $gt: currentTime },
+        startTime: { $lt: currentTime }
+      }
+    },
+    { $sort: { startTime: -1 } },
+    { $limit: max },
     {
       $lookup: {
         from: "users",
@@ -84,7 +85,6 @@ schema.statics.getPostsByTag = function (tag, max, next) {
     },
     { $project: {
       "postText": 1,
-      "postTime": 1,
       "tags": 1,
       "startTime": 1,
       "stopTime": 1,
