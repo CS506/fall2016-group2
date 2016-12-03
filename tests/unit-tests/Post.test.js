@@ -37,10 +37,18 @@ describe("Post Model Test", function () {
     ], done);
   });
 
-  it("Should count all posts with #wonderful tag", function (done) {
+  it("Should count all posts with #wonderful tag directly", function (done) {
     Post.count({ tags: "wonderful" }, function (err, count) {
       if (err) { return done(err); }
       count.should.equal(3);
+      done();
+    });
+  });
+
+  it("Shouldn't count time-restricted posts with #wonderful tag", function (done) {
+    Post.getPostsByTag("wonderful", 100, function (err, posts) {
+      if (err) { return done(err); }
+      posts.length.should.equal(1);
       done();
     });
   });
