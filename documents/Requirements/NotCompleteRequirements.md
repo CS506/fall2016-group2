@@ -1,9 +1,5 @@
 Application runs on Amazon Webservice Servers. __High Priority__
 
-If my post contains an optional start time, it becomes viewable once the start time has elapsed. Otherwise it becomes viewable immediately. __High Priority__
-
-Posts with a stop time should become hidden once the stop time has passed. Otherwise the post is shown forever. __High Priority__
-
 Posts can be shared anonymously. __High Priority__
 
 There is a profile page for each user. __Medium Priority__
