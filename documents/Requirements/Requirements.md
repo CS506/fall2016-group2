@@ -33,10 +33,10 @@
 * Post Sharing
   * Posts can have an optional start time for displaying posts. __Testable__ __Complete__
     * As the Message Creator, I want to choose a time for posts to appear because sometimes I think of stuff to say for certain moments in the day.
-  * If my post contains an optional start time, it becomes viewable once the start time has elapsed. Otherwise it becomes viewable immediately. __Testable__ __High Priority__
+  * If my post contains an optional start time, it becomes viewable once the start time has elapsed. Otherwise it becomes viewable immediately. __Testable__ __Complete__
   * I can assign an optional stop time for displaying my posts. __Testable__ __Complete__
     * As the Message Creator, I do not want everything I say to linked to me because sometimes I may say things that create trouble.
-  * Posts with a stop time should become hidden once the stop time has passed. Otherwise the post is shown forever. __Testable__ __High Priority__
+  * Posts with a stop time should become hidden once the stop time has passed. Otherwise the post is shown forever. __Testable__ __Complete__
   * Posts can be shared anonymously. __High Priority__
     * As the Message Creator, I want to make anonymous messages because sometimes I don't want words linked to me.
     * As the Message Reader, I want anonymous posts because sometimes I don't want to know who wrote those words.
