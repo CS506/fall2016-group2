@@ -22,10 +22,10 @@ BucketController.prototype.getBucket = function () {
           error: "The server could not retrieve the bucket."
         });
       }
-      res.render("posts.handlebars", {
-        bucket: tag,
-        posts: posts
-      });
+      var render = {};
+      render.bucketList[tag] = posts;
+      render.user = req.user;
+      res.render("user.handlebars", render);
     });
   };
 };
