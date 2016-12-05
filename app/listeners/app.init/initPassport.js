@@ -5,7 +5,7 @@ var passport = require("passport");
 var config = require("../../configs/oauth.js");
 var LocalStrategy = require("passport-local").Strategy;
 var FacebookStrategy = require("passport-facebook").Strategy;
-var GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
+var GoogleStrategy = require("passport-google-oauth20").Strategy;
 
 module.exports = initPassport;
 
