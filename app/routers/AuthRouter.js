@@ -1,19 +1,21 @@
-function isLoggedIn (req, res, next) {
-    // if user is authenticated in the session, carry on
-  if (req.isAuthenticated()) { return next(); }
+function isLoggedIn(req, res, next) {
+  // if user is authenticated in the session, carry on
+  if (req.isAuthenticated()) {
+    return next();
+  }
 
-    // if they aren"t redirect them to the home page
+  // if they aren"t redirect them to the home page
   res.redirect("/login");
 }
 
 module.exports = {
   "/login": {
 
-        // retrieve the login view
+    // retrieve the login view
     get: {view: "login.handlebars"},
 
-        // handle the login process
-    post: { action: "AuthController@login" }
+    // handle the login process
+    post: {action: "AuthController@login"}
   },
 
   "/logout": {
@@ -23,16 +25,24 @@ module.exports = {
   },
 
   "/signup": {
-    get: { view: "createAccount.handlebars" },
-    post: { action: "AuthController@createAccount" }
+    get: {view: "createAccount.handlebars"},
+    post: {action: "AuthController@createAccount"}
   },
 
   "/auth": {
     "/facebook": {
-      get: { action: "FacebookAuthController@facebookAuth" },
+      get: {action: "FacebookAuthController@facebookAuth"},
 
       "/callback": {
-        get: { action: "FacebookAuthController@facebookCallback" }
+        get: {action: "FacebookAuthController@facebookCallback"}
+      }
+    },
+
+    "/google": {
+      get: {action: "GoogleAuthController@googleAuth"},
+
+      "/callback": {
+        get: {action: "GoogleAuthController@googleCallback"}
       }
     }
   }
