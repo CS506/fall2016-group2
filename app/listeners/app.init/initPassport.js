@@ -20,7 +20,7 @@ function initPassport(app) {
       clientSecret: config.google.clientSecret,
       callbackURL: config.google.callbackURL
     },
-    function (token, tokenSecret, profile, done) {
+    function (accessToken, refreshSecret, profile, done) {
       User.findOne({serviceId: profile.id}, function (error, user) {
         if (error) {
           return done(error);
