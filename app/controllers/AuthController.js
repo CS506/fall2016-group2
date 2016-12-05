@@ -18,7 +18,7 @@ AuthController.prototype.login = function () {
       }
       if (!user) {
         return res.status(422).render("login.handlebars", {
-          error: "Ivalid Username or Password."
+          error: "Invalid Username or Password."
         });
       }
       req.logIn(user, function (err) {

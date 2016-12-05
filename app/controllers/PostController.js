@@ -14,16 +14,28 @@ PostController.prototype.createPost = function () {
         // initialize an empty post
     var msg = {};
 
-    if (req.body.postText && req.user) {
-      msg.postText = req.body.postText;
-      msg.createdBy = req.user._id;
-      msg.postTime = new Date();
-      Post.create(msg, function (err, newpost) {
-        if (err) { return next(err); }
-        if (!newpost) { return res.sendStatus(500); }
-        return res.redirect("/home");
+    if (!req.body.postText) {
+      return res.status(400).render("user.handlebars", {
+        error: "Posts must contain text."
       });
-    } else { return res.sendStatus(400); }
+    }
+
+    if (!req.user._id) {
+      return res.status(401).render("user.handlebars", {
+        error: "Not logged in."
+      });
+    }
+
+    msg.postText = req.body.postText;
+    msg.createdBy = req.user._id;
+    msg.startTime = req.body.startTime ? req.body.startTime : Date.now();
+    msg.stopTime = req.body.stopTime ? req.body.stopTime : Date.now() + (100 * 365 * 24 * 60 * 60 * 1000);
+
+    Post.create(msg, function (err, newpost) {
+      if (err) { return next(err); }
+      if (!newpost) { return res.sendStatus(500); }
+      return res.redirect("/home");
+    });
   };
 };
 
