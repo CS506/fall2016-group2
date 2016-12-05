@@ -1,7 +1,5 @@
 Application runs on Amazon Webservice Servers. __High Priority__
 
-Posts can be shared anonymously. __High Priority__
-
 There is a profile page for each user. __Medium Priority__
 
 The user profile page shows their username and an email. __Medium Priority__

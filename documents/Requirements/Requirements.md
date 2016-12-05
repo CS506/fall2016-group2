@@ -37,7 +37,7 @@
   * I can assign an optional stop time for displaying my posts. __Testable__ __Complete__
     * As the Message Creator, I do not want everything I say to linked to me because sometimes I may say things that create trouble.
   * Posts with a stop time should become hidden once the stop time has passed. Otherwise the post is shown forever. __Testable__ __Complete__
-  * Posts can be shared anonymously. __High Priority__
+  * Posts can be shared anonymously. __Complete__
     * As the Message Creator, I want to make anonymous messages because sometimes I don't want words linked to me.
     * As the Message Reader, I want anonymous posts because sometimes I don't want to know who wrote those words.
 
@@ -52,11 +52,11 @@
   * When mouse hovers over a bucket, the bucket is scaled up in size. __Complete__
 
 * Log in and account creation
-  * I would like to use my facebook account to login. __Testable__ __Complete__
+  * I would like to use my facebook/google account to login. __Testable__ __Complete__
     * As the User, I would like to use my facebook or google account to login because I won't need to remember any more passwords.
     * As the system, I would like users to login with another service because it sucks to manage user accounts.
     * As the coder, I would like users to login with another service because this way I do not need to think about account validation and security.
-  * I would like to use my facebook account to signup. __Testable__ __Complete__
+  * I would like to use my facebook/google account to signup. __Testable__ __Complete__
     * As the User, I would like to use my facebook or google account to signup because filling out forms is annoying.
     * As The system, I would like users to sign up with another service because organizing account information takes alot of storage and processing time.
     * As the code, I would like users to signup with another service because this way I do not need to think about account creation, recovery, and possibly account deletion.
