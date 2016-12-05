@@ -24,8 +24,9 @@
 </table>
 <div class="container" style="width:100%; margin:0%">
 	<div class="newicon" style="float:right; margin:1%">
-		<span id="newPost"><img src="images/new_post.png" alt="Image not loaded"/></span>
-		<span id="newBucket"><img src="images/new_bucket.png" alt="Image not loaded"/></span>
+		<span id="home"><img src="images/home.png" alt="Home"/></span>
+		<span id="newPost"><img src="images/new_post.png" alt="NewPost"/></span>
+		<span id="newBucket"><img src="images/new_bucket.png" alt="NewBucket"/></span>
 	</div>
 	<div id="myModalNew" class="modal">
 		<form method="post" action="/createPost">
@@ -63,13 +64,13 @@
             <input type="text" class="form-control" id="bucketTag" name="bucketTag" placeholder="Enter tag for bucket">
 			<button name="submit" class="btn btn-default">Submit</button>
         </div>
-
+        
     </form>
 	</div>
 </div>
-<div class="container">
+<div class="container" style="width:100%; margin:0%">
 	{{#each bucketList}}
-		<div id="buckets">
+		<div id="buckets" class="{{@key}} hoverbucket" onclick="clickedbucket(this);">
 			<div class="wrap">
 				<div class="drop-outer">
 					<svg class="drop" viewBox="0 0 40 40" version="1.1"
@@ -100,9 +101,9 @@
 			<center>
 				{{#each this}}
 					{{this.username}} posted: {{this.postText}} @ {{this.createdAt}}
-					<br/>----------------------------------------<br/>
+					<br/><br/>
 				{{/each}}
-
+			</center>
 		</div>
 	{{/each}}
 </div>

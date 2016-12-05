@@ -1,6 +1,7 @@
 ﻿body
 {
 	background:url('../images/bg.jpg');
+	overflow:auto;
 }
 img
 {
@@ -36,6 +37,11 @@ img
 	padding-left:1%;
 }
 
+div.container {
+ margin:0%;
+ padding:0%;
+}
+
 div#buckets {
 	width:285px;
     height:250px;
@@ -60,7 +66,7 @@ div#buckets {
     transform: scale(1);   
 }
 
-div#buckets:hover {
+div.hoverbucket:hover {
 	float:left; 
     padding:0% 1% 1% 1%;
     margin:4%;
@@ -226,7 +232,7 @@ h4 b
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
+    z-index: 5; /* Sit on top */
     padding-top: 100px; /* Location of the box */
     left: 0;
     top: 0;
