@@ -1,7 +1,7 @@
 var blueprint = require("@onehilltech/blueprint");
 var passport = require("passport");
 
-function GoogleAuthController () {
+function GoogleAuthController() {
   blueprint.BaseController.call(this);
 }
 
@@ -11,7 +11,7 @@ blueprint.controller(GoogleAuthController);
 GoogleAuthController.prototype.googleAuth = function () {
   return function (req, res, next) {
     //passport.authenticate("google", {scope: "https://www.googleapis.com/auth/plus.login" }, function (err, user) {
-    passport.authenticate("google", {scope: "profile" }, function (err, user) {
+    passport.authenticate("google", {scope: "profile"}, function (err, user) {
       if (err) {
         return res.status(500).render("login.handlebars", {
           error: "Internal Server Error."
@@ -41,7 +41,9 @@ GoogleAuthController.prototype.googleCallback = function () {
         });
       }
       req.logIn(user, function (err) {
-        if (err) { return next(err); }
+        if (err) {
+          return next(err);
+        }
         req.session.save(() => {
           res.redirect("/home");
         });
