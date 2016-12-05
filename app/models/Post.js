@@ -7,6 +7,7 @@ var schema = new mongodb.Schema({
     required: true,
     trim: true
   },
+  anonymous: Boolean,
   tags: {
     type: [String],
     lowercase: true,
@@ -85,15 +86,22 @@ schema.statics.getPostsByTag = function (tag, max, next) {
     },
     { $project: {
       "postText": 1,
+      "createdAt": 1,
       "tags": 1,
       "startTime": 1,
       "stopTime": 1,
       "createdBy": 1,
+      "anonymous": 1,
       "username": "$creator.username"
     }}
     )
     .exec(function (err, posts) {
       if (err) { return next(err); }
+      for (let post in posts) {
+        if (post.anonymous) {
+          post.username = "Anonymous";
+        }
+      }
       next(null, posts);
     });
 };
