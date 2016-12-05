@@ -16,7 +16,7 @@ module.exports = {
 
   middleware: {
     bodyParser: {
-      urlencoded: { extended: false }
+      urlencoded: {extended: false}
     },
 
     morgan: {
@@ -40,7 +40,7 @@ module.exports = {
       secret: "ssshhhhh",
       resave: false,
       saveUninitialized: true,
-      cookie: { secure: false }  // set to true for https://
+      cookie: {secure: false}  // set to true for https://
     }
 
   },

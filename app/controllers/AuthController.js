@@ -2,7 +2,7 @@ var blueprint = require("@onehilltech/blueprint");
 var passport = require("passport");
 var User = blueprint.app.models.User;
 
-function AuthController () {
+function AuthController() {
   blueprint.BaseController.call(this);
 }
 
@@ -22,7 +22,9 @@ AuthController.prototype.login = function () {
         });
       }
       req.logIn(user, function (err) {
-        if (err) { return next(err); }
+        if (err) {
+          return next(err);
+        }
         res.redirect("/home");
       });
     })(req, res, next);
@@ -42,17 +44,27 @@ AuthController.prototype.createAccount = function () {
     var password = req.body.password;
 
     if (username && password) {
-      User.findOne({ username: username }, function (err, user) {
-        if (err) { return next(err); }
-        if (user) { return res.sendStatus(409); }
-        User.create({ username: username, password: password }, function (createErr, newuser) {
-          if (createErr) { return next(createErr); }
-          if (!newuser) { return res.sendStatus(500); }
-                    // return res.sendStatus(201);
+      User.findOne({username: username}, function (err, user) {
+        if (err) {
+          return next(err);
+        }
+        if (user) {
+          return res.sendStatus(409);
+        }
+        User.create({username: username, password: password}, function (createErr, newuser) {
+          if (createErr) {
+            return next(createErr);
+          }
+          if (!newuser) {
+            return res.sendStatus(500);
+          }
+          // return res.sendStatus(201);
           res.redirect("/login");
         });
       });
-    } else { return res.sendStatus(400); }
+    } else {
+      return res.sendStatus(400);
+    }
   };
 };
 
