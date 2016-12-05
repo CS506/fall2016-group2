@@ -1,16 +1,17 @@
 var blueprint = require("@onehilltech/blueprint");
 var passport = require("passport");
 
-function FacebookAuthController () {
+function GoogleAuthController () {
   blueprint.BaseController.call(this);
 }
 
-blueprint.controller(FacebookAuthController);
+blueprint.controller(GoogleAuthController);
 
-// function facebookAuth
-FacebookAuthController.prototype.facebookAuth = function () {
+// function googleAuth
+GoogleAuthController.prototype.googleAuth = function () {
   return function (req, res, next) {
-    passport.authenticate("facebook", function (err, user) {
+    //passport.authenticate("google", {scope: "https://www.googleapis.com/auth/plus.login" }, function (err, user) {
+    passport.authenticate("google", {scope: "profile" }, function (err, user) {
       if (err) {
         return res.status(500).render("login.handlebars", {
           error: "Internal Server Error."
@@ -25,13 +26,13 @@ FacebookAuthController.prototype.facebookAuth = function () {
   };
 };
 
-// function facebookCallback
-FacebookAuthController.prototype.facebookCallback = function () {
+// function googleCallback
+GoogleAuthController.prototype.googleCallback = function () {
   return function (req, res, next) {
-    passport.authenticate("facebook", function (err, user) {
+    passport.authenticate("google", function (err, user) {
       if (err) {
         return res.status(500).render("login.handlebars", {
-          error: "Facebook auth error"
+          error: "Google auth error"
         });
       }
       if (!user) {
@@ -49,4 +50,4 @@ FacebookAuthController.prototype.facebookCallback = function () {
   };
 };
 
-module.exports = FacebookAuthController;
+module.exports = GoogleAuthController;
