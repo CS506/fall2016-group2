@@ -25,10 +25,10 @@ PostController.prototype.createPost = function () {
         error: "Not logged in."
       });
     }
-    console.log(JSON.stringify(req.body));
+
     msg.postText = req.body.postText;
     msg.createdBy = req.user._id;
-    msg.anonymous = req.body.anonymous;
+    msg.anonymous = req.body.anonymous ? true : false;
     msg.startTime = req.body.startTime ? req.body.startTime : Date.now();
     msg.stopTime = req.body.stopTime ? req.body.stopTime : Date.now() + (100 * 365 * 24 * 60 * 60 * 1000);
 

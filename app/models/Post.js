@@ -100,13 +100,11 @@ schema.statics.getPostsByTag = function (tag, max, next) {
     )
     .exec(function (err, posts) {
       if (err) { return next(err); }
-      console.log(JSON.stringify(posts));
-      for (let post in posts) {
+      for (let post of posts) {
         if (post.anonymous) {
           post.username = "Anonymous";
         }
       }
-      console.log(JSON.stringify(posts));
       next(null, posts);
     });
 };
