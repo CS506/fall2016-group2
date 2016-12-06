@@ -7,7 +7,10 @@ var schema = new mongodb.Schema({
     required: true,
     trim: true
   },
-  anonymous: Boolean,
+  anonymous: {
+    type: Boolean,
+    required: true
+  },
   tags: {
     type: [String],
     lowercase: true,
@@ -97,17 +100,19 @@ schema.statics.getPostsByTag = function (tag, max, next) {
     )
     .exec(function (err, posts) {
       if (err) { return next(err); }
+      console.log(JSON.stringify(posts));
       for (let post in posts) {
         if (post.anonymous) {
           post.username = "Anonymous";
         }
       }
+      console.log(JSON.stringify(posts));
       next(null, posts);
     });
 };
 
 schema.statics.getPostsByTags = function (tags, next) {
-  var max = 10; // Max number of posts to get for each tag
+  var max = 100; // Max number of posts to get for each tag
   var postList = {};
   var inserted = 0;
 

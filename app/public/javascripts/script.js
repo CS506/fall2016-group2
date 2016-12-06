@@ -20,25 +20,25 @@ bucketbtn.onclick = function () {
   bucket.style.display = "block";
 };
 
-function clickedbucket(el) {
-    var bucketclass = $(el).attr("class");
-    document.getElementsByClassName(bucketclass)[0].className = "clickedbucket";
-    var bucketdiv = document.getElementsByClassName("clickedbucket")[0];
-    bucketdiv.style.padding = "0%";
-    bucketdiv.style.margin = "0%";
-    bucketdiv.style.position = "relative";
-    bucketdiv.style.height = "100%";
-    bucketdiv.style.width = "98%";
-    bucketdiv.style.overflow = "auto";
-    bucketdiv.style.zIndex = "2";
-    bucketdiv.style.display = "block";
-    bucketdiv.style.borderRadius = "0";
-    bucketdiv.style.background = "none";
-    bucketdiv.style.textAlign = "left";
-    hideBuckets();
+function clickedbucket (el) {
+  var bucketclass = $(el).attr("class");
+  document.getElementsByClassName(bucketclass)[0].className = "clickedbucket";
+  var bucketdiv = document.getElementsByClassName("clickedbucket")[0];
+  bucketdiv.style.padding = "0%";
+  bucketdiv.style.margin = "0%";
+  bucketdiv.style.position = "relative";
+  bucketdiv.style.height = "100%";
+  bucketdiv.style.width = "98%";
+  bucketdiv.style.overflow = "auto";
+  bucketdiv.style.zIndex = "2";
+  bucketdiv.style.display = "block";
+  bucketdiv.style.borderRadius = "0";
+  bucketdiv.style.background = "none";
+  bucketdiv.style.textAlign = "left";
+  hideBuckets();
 }
 
-//bucketdiv.onclick = function () {
+// bucketdiv.onclick = function () {
 //    document.getElementById("buckets").className = "clickedbucket";
 //    document.getElementsByClassName("bucketclose")[0].style.display = "block";
 //    bucketdiv.style.padding = "0%";
@@ -53,19 +53,18 @@ function clickedbucket(el) {
 //    bucketdiv.style.background = "none";
 //    bucketdiv.style.textAlign = "left";
 //    hideBuckets();
-//};
+// };
 
-function hideBuckets() {
-    var buckethide = document.getElementsByClassName("hoverbucket");
-    var i;
-    for (i = 0; i < buckethide.length; i++) {
-        buckethide[i].style.display = "none";
-    }
-    var drop = document.getElementsByTagName("svg");
-    for (i = drop.length - 1; i >= 0; i--) {
-        drop[i].parentNode.removeChild(drop[i]);
-    }
-
+function hideBuckets () {
+  var buckethide = document.getElementsByClassName("hoverbucket");
+  var i;
+  for (i = 0; i < buckethide.length; i++) {
+    buckethide[i].style.display = "none";
+  }
+  var drop = document.getElementsByTagName("svg");
+  for (i = drop.length - 1; i >= 0; i--) {
+    drop[i].parentNode.removeChild(drop[i]);
+  }
 }
 // When the user clicks on <span> (x), close the modal
 postspan.onclick = function () {
@@ -77,7 +76,7 @@ bucketspan.onclick = function () {
 };
 
 home.onclick = function () {
-    window.location.reload(true);
+  window.location.reload(true);
 };
 
 // When the user clicks anywhere outside of the modal, close it
