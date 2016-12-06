@@ -82,8 +82,8 @@ function countChar (val) {
 }
 
 $("#deadline").click(function () {
-  var isChecked = $("#deadline").is(":checked");
-  if (isChecked) {
+  var isdeadline = $("#deadline").is(":checked");
+  if (isdeadline) {
     $("#dateTimePicker").css("display", "block");
   }
   else{
@@ -95,10 +95,8 @@ $("#anonymous").click(function () {
 	var isChecked = $("#anonymous").is(":checked");
 	if(isChecked){
 		isChecked = true;
-		alert (isChecked);
 	}
 	else {
 		isChecked = false;
-		alert (isChecked);
 	}
 });
