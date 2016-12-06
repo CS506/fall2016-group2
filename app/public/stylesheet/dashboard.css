@@ -42,6 +42,11 @@ div.container {
  padding:0%;
 }
 
+#dateTimePicker
+{
+	display:none;
+}
+
 div#buckets {
 	width:285px;
     height:250px;
