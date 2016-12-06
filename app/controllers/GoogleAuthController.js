@@ -1,7 +1,7 @@
 var blueprint = require("@onehilltech/blueprint");
 var passport = require("passport");
 
-function GoogleAuthController() {
+function GoogleAuthController () {
   blueprint.BaseController.call(this);
 }
 
@@ -10,7 +10,7 @@ blueprint.controller(GoogleAuthController);
 // function googleAuth
 GoogleAuthController.prototype.googleAuth = function () {
   return function (req, res, next) {
-    //passport.authenticate("google", {scope: "https://www.googleapis.com/auth/plus.login" }, function (err, user) {
+    // passport.authenticate("google", {scope: "https://www.googleapis.com/auth/plus.login" }, function (err, user) {
     passport.authenticate("google", {scope: "profile"}, function (err, user) {
       if (err) {
         return res.status(500).render("login.handlebars", {

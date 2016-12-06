@@ -85,20 +85,18 @@ $("#deadline").click(function () {
   var isdeadline = $("#deadline").is(":checked");
   if (isdeadline) {
     $("#dateTimePicker").css("display", "block");
-  }
-  else{
-	$("#dateTimePicker").css("display", "none");
+  } else {
+    $("#dateTimePicker").css("display", "none");
   }
 });
 
 $("#anonymous").click(function () {
-	var isChecked = $("#anonymous").is(":checked");
-	if(isChecked){
-		isChecked = true;
-		document.getElementById("anonymous").body = "true";
-	}
-	else {
-		isChecked = false;
-		document.getElementById("anonymous").body = "false";
-	}
+  var isChecked = $("#anonymous").is(":checked");
+  if (isChecked) {
+    isChecked = true;
+    document.getElementById("anonymous").body = "true";
+  } else {
+    isChecked = false;
+    document.getElementById("anonymous").body = "false";
+  }
 });
