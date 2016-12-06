@@ -95,10 +95,10 @@ $("#anonymous").click(function () {
 	var isChecked = $("#anonymous").is(":checked");
 	if(isChecked){
 		isChecked = true;
-		document.getElementById("anonymous").name = "true";
+		document.getElementById("anonymous").body = "true";
 	}
 	else {
 		isChecked = false;
-		document.getElementById("anonymous").name = "false";
+		document.getElementById("anonymous").body = "false";
 	}
 });
