@@ -9,17 +9,17 @@ var GoogleStrategy = require("passport-google-oauth20").Strategy;
 
 module.exports = initPassport;
 
-function initPassport(app) {
+function initPassport (app) {
   var User = app.models.User;
   var opts = {session: true};
 
   passport.use(new LocalStrategy(opts, authorize));
 
   passport.use(new GoogleStrategy({
-      clientID: config.google.clientID,
-      clientSecret: config.google.clientSecret,
-      callbackURL: config.google.callbackURL
-    },
+    clientID: config.google.clientID,
+    clientSecret: config.google.clientSecret,
+    callbackURL: config.google.callbackURL
+  },
     function (accessToken, tokenSecret, profile, done) {
       User.findOne({serviceId: profile.id}, function (error, user) {
         if (error) {
@@ -44,10 +44,10 @@ function initPassport(app) {
   ));
 
   passport.use(new FacebookStrategy({
-      clientID: config.facebook.clientID,
-      clientSecret: config.facebook.clientSecret,
-      callbackURL: config.facebook.callbackURL
-    },
+    clientID: config.facebook.clientID,
+    clientSecret: config.facebook.clientSecret,
+    callbackURL: config.facebook.callbackURL
+  },
     function (accessToken, refreshToken, profile, done) {
       User.findOne({serviceId: profile.id}, function (error, user) {
         if (error) {
@@ -71,7 +71,7 @@ function initPassport(app) {
     }
   ));
 
-  function authorize(username, password, done) {
+  function authorize (username, password, done) {
     User.findOne({username: username}, function (err, user) {
       if (err) {
         return done(err);
