@@ -25,7 +25,7 @@ PostController.prototype.createPost = function () {
         error: "Not logged in."
       });
     }
-
+    console.log(JSON.stringify(req.body));
     msg.postText = req.body.postText;
     msg.createdBy = req.user._id;
     msg.anonymous = req.body.anonymous;
