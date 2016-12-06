@@ -90,3 +90,15 @@ $("#deadline").click(function () {
 	$("#dateTimePicker").css("display", "none");
   }
 });
+
+$("#anonymous").click(function () {
+	var isChecked = $("#anonymous").is(":checked");
+	if(isChecked){
+		isChecked = true;
+		alert (isChecked);
+	}
+	else {
+		isChecked = false;
+		alert (isChecked);
+	}
+});
