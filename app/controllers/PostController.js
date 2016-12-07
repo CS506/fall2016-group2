@@ -28,7 +28,7 @@ PostController.prototype.createPost = function () {
 
     msg.postText = req.body.postText;
     msg.createdBy = req.user._id;
-    msg.anonymous = req.body.anonymous;
+    msg.anonymous = req.body.anonymous ? true : false; // eslint-disable-line no-unneeded-ternary
     msg.startTime = req.body.startTime ? req.body.startTime : Date.now();
     msg.stopTime = req.body.stopTime ? req.body.stopTime : Date.now() + (100 * 365 * 24 * 60 * 60 * 1000);
 
@@ -41,4 +41,3 @@ PostController.prototype.createPost = function () {
 };
 
 module.exports = PostController;
-

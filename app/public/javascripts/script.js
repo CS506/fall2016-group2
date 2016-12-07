@@ -38,23 +38,6 @@ function clickedbucket (el) {
   hideBuckets();
 }
 
-// bucketdiv.onclick = function () {
-//    document.getElementById("buckets").className = "clickedbucket";
-//    document.getElementsByClassName("bucketclose")[0].style.display = "block";
-//    bucketdiv.style.padding = "0%";
-//    bucketdiv.style.margin = "0%";
-//    bucketdiv.style.position = "relative";
-//    bucketdiv.style.height = "100%";
-//    bucketdiv.style.width = "98%";
-//    bucketdiv.style.overflow = "auto";
-//    bucketdiv.style.zIndex = "2";
-//    bucketdiv.style.display = "block";
-//    bucketdiv.style.borderRadius = "0";
-//    bucketdiv.style.background = "none";
-//    bucketdiv.style.textAlign = "left";
-//    hideBuckets();
-// };
-
 function hideBuckets () {
   var buckethide = document.getElementsByClassName("hoverbucket");
   var i;
@@ -66,6 +49,7 @@ function hideBuckets () {
     drop[i].parentNode.removeChild(drop[i]);
   }
 }
+
 // When the user clicks on <span> (x), close the modal
 postspan.onclick = function () {
   modal.style.display = "none";
@@ -98,31 +82,21 @@ function countChar (val) {
 }
 
 $("#deadline").click(function () {
-  var isChecked = $("#deadline").is(":checked");
-  if (isChecked) {
+  var isdeadline = $("#deadline").is(":checked");
+  if (isdeadline) {
     $("#dateTimePicker").css("display", "block");
+  } else {
+    $("#dateTimePicker").css("display", "none");
   }
 });
 
-$("#submit").click(function () {
-  var startDateTime = new Date($("input[name=startDateTime]").val());
-  var endDateTime = new Date($("input[name=endDateTime]").val());
-  var currentDate = new Date();
-  var startTime = startDateTime.toTimeString();
-  var endTime = endDateTime.toTimeString();
-  var startDate = startDateTime.toDateString();
-  var endDate = endDateTime.toDateString();
-    // console.log(startDateTime);
-  if (startDateTime !== "Invalid Date") {
-    if (startDateTime > currentDate) {
-            // console.log(startDate + " " + currentDate);
-      if (startDateTime < endDateTime) {
-        alert("success");
-      } else {
-        alert("Start date should be before end date");
-      }
-    } else {
-      alert("Start date should be after current date");
-    }
+$("#anonymous").click(function () {
+  var isChecked = $("#anonymous").is(":checked");
+  if (isChecked) {
+    isChecked = true;
+    document.getElementById("anonymous").body = "true";
+  } else {
+    isChecked = false;
+    document.getElementById("anonymous").body = "false";
   }
 });

@@ -16,6 +16,12 @@ div.logo
 	transform: translate(15%,0%);
 }
 
+#error
+{
+	color: red;
+	text-align:center;
+}
+
 img
 { 
 	height:125px; 
