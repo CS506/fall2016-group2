@@ -125,6 +125,6 @@ $( "#submitPost" ).submit(function( event ) {
     });
     content.imageId = data;
 
-    $.post(url, content);
+    // $.post(url, content);
   });
 });
