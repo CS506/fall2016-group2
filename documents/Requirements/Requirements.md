@@ -5,7 +5,7 @@
 
 ##Project Requirements
 
-* Application runs on Amazon Webservice Servers. __High Priority__
+* Application runs on Amazon Webservice Servers. __Complete__
 
 * Views
   * There is a front page that all users can see. This page has buckets and posts that the user likes to view. __Testable__ __Complete__
@@ -23,7 +23,7 @@
 * Post Creation
   * A post cannot be more than 160 characters. __Testable__ __Complete__
     * As the Message Reader, I hate reading alot of text because it is boring.
-  * I can put images in posts. Image size cannot be bigger than 1024x512. __Testable__ __Complete__
+  * I can put images in posts. Image size cannot be bigger than 1024x512. __Testable__ __High Priority__
     * As the Message Creator, I would like use images in message because they have more information and I want to express my creative side.
     * As the Message Reader, I would like to see images in messages because text only posts are boring.
   * Posts can have hashtags in them. Atleast 0 hashtags. __Testable__ __Complete__
@@ -43,12 +43,11 @@
 
 * Buckets
   * Organize posts in collections of related material called buckets. __Complete__ 
-  * The front page has atleast 1 bucket that all users can see. This is the "Lastest Posts" bucket. __Testable__ __Complete__
-  * I can specify which buckets I prefer to see on my front page. __Medium Priority__
+  * I can specify which buckets I prefer to see on my front page. __Complete__
   * The most recent post is displayed first in a bucket. __Testable__ __Complete__
     * As the Message Reader, I want the most recent messages first in a bucket because sometimes the current messages are the only fun ones.
   * There is a button on each bucket to refreshes the bucket with new posts. __Testable__ __Low Priority__
-  * When a bucket is clicked, a single pop up appears that shows recent posts in the bucket. __Testable__ __Medium Priority__
+  * When a bucket is clicked, a single pop up appears that shows recent posts in the bucket. __Testable__ __Complete__
   * When mouse hovers over a bucket, the bucket is scaled up in size. __Complete__
 
 * Log in and account creation
