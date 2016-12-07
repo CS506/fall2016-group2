@@ -29,7 +29,7 @@
 		<span id="newBucket"><img src="images/new_bucket.png" alt="NewBucket"/></span>
 	</div>
 	<div id="myModalNew" class="modal">
-		<form method="post" action="/createPost">
+		<form id="submitPost" method="post" action="/createPost">
 		<div class="modal-content-text" id="modal-content-text">
 			  <span id ="close" class="postclose">X</span>
 			  <div class="modal_content">
@@ -38,7 +38,7 @@
 					<span>Characters left:</span><span id="charNum">160</span></br></br>
 					<input type="file" name="fileToUpload" id="fileToUpload" accept="image/*"></br></br>
 					<input type="checkbox" id="anonymous"  name="anonymous" value="stay anonymous">Stay Incognito</input></br>
-					<input type="checkbox" id="deadline" value="deadline">Start later?</input>
+					<input type="checkbox" id="deadline" name="deadline" value="deadline">Start later?</input>
 					<div class="dateTimePicker" id="dateTimePicker">
 						<table>
 							<tr>
@@ -53,7 +53,7 @@
 					</div>
 			  </div>
 			  <div id="tags" name="tags"></div>
-			  <button id="submitPost" type="submit" class="btn btn-default">Submit</button>
+			  <button id="submit" type="submit" class="btn btn-default">Submit</button>
 		</div>
 		</form>
 	</div>

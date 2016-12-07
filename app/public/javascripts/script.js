@@ -109,17 +109,22 @@ $( "#submitPost" ).submit(function( event ) {
  
   // Get some values from elements on the page:
   var $form = $( this ),
-    image = $form.find("input[type=file]");
-    
+    image = {imageId: $('input[type=file]')[0]},
     url = "/images";
  
   // Send the data using post
   var posting = $.post(url, image);
- 
+
   posting.done(function( data ) {
+
     url = $form.attr( "action" );
-    var content = $form.serialize();
+    var otherContent = $form.serializeArray();
+    var content = {};
+    jQuery.each( otherContent, function (i, field) {
+      content[field.name] = field.value;
+    });
     content.imageId = data;
+
     $.post(url, content);
   });
 });
