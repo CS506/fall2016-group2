@@ -100,3 +100,26 @@ $("#anonymous").click(function () {
     document.getElementById("anonymous").body = "false";
   }
 });
+
+// Attach a submit handler to the form
+$( "#submitPost" ).submit(function( event ) {
+ 
+  // Stop form from submitting normally
+  event.preventDefault();
+ 
+  // Get some values from elements on the page:
+  var $form = $( this ),
+    image = $form.find("input[type=file]");
+    
+    url = "/images";
+ 
+  // Send the data using post
+  var posting = $.post(url, image);
+ 
+  posting.done(function( data ) {
+    url = $form.attr( "action" );
+    var content = $form.serialize();
+    content.imageId = data;
+    $.post(url, content);
+  });
+});
