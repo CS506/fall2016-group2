@@ -30,8 +30,17 @@ PostController.prototype.createPost = function () {
     msg.createdBy = req.user._id;
     msg.anonymous = req.body.anonymous ? true : false; // eslint-disable-line no-unneeded-ternary
 	d = new Date();
-    msg.startTime = req.body.startTime ? Date.parse(req.body.startTime) + d.getTimezoneOffset(req.body.startTime)*60000 : Date.now();
-    msg.stopTime = req.body.stopTime ? Date.parse(req.body.stopTime) + d.getTimezoneOffset(req.body.stopTime)*60000 : Date.now() + (100 * 365 * 24 * 60 * 60 * 1000);
+	if(isNaN(req.body.startTime))
+	{
+		msg.startTime = req.body.startTime ? Date.parse(req.body.startTime) + d.getTimezoneOffset(req.body.startTime)*60000 : Date.now();
+		msg.stopTime = req.body.stopTime ? Date.parse(req.body.stopTime) + d.getTimezoneOffset(req.body.stopTime)*60000 : Date.now() + (100 * 365 * 24 * 60 * 60 * 1000);
+	}
+	else
+	{
+		msg.startTime = req.body.startTime ? req.body.startTime : Date.now();
+		msg.stopTime = req.body.stopTime ? req.body.startTime : Date.now() + (100 * 365 * 24 * 60 * 60 * 1000);
+	}
+    
 
     Post.create(msg, function (err, newpost) {
       if (err) { return next(err); }
